@@ -1,4 +1,8 @@
+package org.aziendaagricola.entita;
+
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 
 @Entity
 @Table(name="utente")
@@ -6,14 +10,30 @@ public class Utente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUtente;
-    @Column()//nullable->può essere null udpatable->può essere modificato name->se uso nome diverso rispetto a db
+   // @Column()//nullable->può essere null udpatable->può essere modificato name->se uso nome diverso rispetto a db
+
+    @Column(nullable = false)
     private String nome;
-    @Column()
+
+    @Column(nullable = false, unique = true)
     private String username;
-    @Column()
+
+    @Column(nullable = false)
     private String password;
-    @Column()
-    private char tipo;
+
+    @Column(nullable = false, length = 1)
+    private String tipo; // Vincolo: 'C' o 'A'
+
+    @OneToMany(mappedBy = "utente")
+    private ArrayList<Acquisto> acquisti;
+
+    public ArrayList<Acquisto> getAcquisti() {
+        return acquisti;
+    }
+
+    public void setAcquisti(ArrayList<Acquisto> acquisti) {
+        this.acquisti = acquisti;
+    }
 
     public int getIdUtente() {
         return idUtente;
@@ -39,11 +59,11 @@ public class Utente {
         this.password = password;
     }
 
-    public char getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(char tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
@@ -54,6 +74,4 @@ public class Utente {
     public void setUsername(String username) {
         this.username = username;
     }
-
-
 }
