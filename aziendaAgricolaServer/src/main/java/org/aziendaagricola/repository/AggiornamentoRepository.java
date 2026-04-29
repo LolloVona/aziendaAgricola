@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AggiornamentoRepository extends JpaRepository<Aggiornamento, Integer> {
+
 }

@@ -1,6 +1,7 @@
 package org.aziendaagricola.entita;
 
 import jakarta.persistence.*;
+import org.aziendaagricola.repository.AggiornamentoRepository;
 
 import java.time.LocalDate;
 
@@ -28,6 +29,7 @@ public class Aggiornamento {
     @ManyToOne
     @JoinColumn(name = "id_prodotto")
     private Prodotto prodotto;
+
 
     public String getAttributo_modificato() {
         return attributo_modificato;
@@ -92,4 +94,5 @@ public class Aggiornamento {
     public void setVecchio_valore(String vecchio_valore) {
         this.vecchio_valore = vecchio_valore;
     }
+
 }

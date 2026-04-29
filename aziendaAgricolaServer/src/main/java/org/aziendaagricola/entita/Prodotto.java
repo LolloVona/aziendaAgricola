@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Prodotto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_prodotto;
+    private int idProdotto;
 
     @Column(nullable = false, unique = true)
     private String nome;
@@ -29,12 +29,12 @@ public class Prodotto {
         this.disponibilita = disponibilita;
     }
 
-    public int getId_prodotto() {
-        return id_prodotto;
+    public int getIdProdotto() {
+        return idProdotto;
     }
 
-    public void setId_prodotto(int id_prodotto) {
-        this.id_prodotto = id_prodotto;
+    public void setIdProdotto(int id_prodotto) {
+        this.idProdotto = id_prodotto;
     }
 
     public float getMagazzino() {
