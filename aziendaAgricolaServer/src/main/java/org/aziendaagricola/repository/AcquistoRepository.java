@@ -1,8 +1,9 @@
 package org.aziendaagricola.repository;
 
+import org.aziendaagricola.entita.Acquisto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProssimoRaccolto extends JpaRepository<ProssimoRaccolto, Integer> {
+public interface AcquistoRepository extends JpaRepository<Acquisto, Integer> {
 }
