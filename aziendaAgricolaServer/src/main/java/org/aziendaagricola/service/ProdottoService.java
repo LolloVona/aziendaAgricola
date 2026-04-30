@@ -19,8 +19,6 @@ public class ProdottoService {
 
     public boolean salvaProdotto(ProdottoCreateDTO dto) {
         // 1. Chiedo al DTO se i numeri sono coerenti
-        if (!dto.isValido())
-            return false;
 
         // 2. Controllo sul database se il nome esiste già
         if (repository.existsByNome(dto.getNome()))

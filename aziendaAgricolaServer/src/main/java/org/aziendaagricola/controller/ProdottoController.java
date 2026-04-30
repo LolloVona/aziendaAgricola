@@ -40,10 +40,13 @@ public class ProdottoController {
     disponibilita:float
     * */
     public ResponseEntity<String> aggiungi(@RequestBody ProdottoCreateDTO dto) {
+        //TODO sistemare codici
         // 1. Validazione base dell'input
         if (dto.getIdUtente() == null) {
             return ResponseEntity.status(400).body("ID utente mancante.");
         }
+        if (!dto.isValido())
+            return ResponseEntity.badRequest().body("Dati non validi");//errore dati nella body
 
         // 2. Chiamata al service
         boolean successo = prodottoService.salvaProdotto(dto);
