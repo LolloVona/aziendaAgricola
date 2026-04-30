@@ -33,13 +33,14 @@ public class ProdottoController {
 */
     @PostMapping()
     /*body:
+    idUtente:int
     nome:String
     prezzo:float
     magazzino:float
     disponibilita:float
     * */
     public ResponseEntity<String> aggiungi(@RequestBody ProdottoCreateDTO dto) {
-
+        //TODO controllo che l'utente sia di tipo A
         boolean successo = prodottoService.salvaProdotto(dto);
 
         if (successo) {
