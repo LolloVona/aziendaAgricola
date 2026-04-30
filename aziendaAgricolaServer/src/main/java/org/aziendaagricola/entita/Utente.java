@@ -2,7 +2,7 @@ package org.aziendaagricola.entita;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="utente")
@@ -25,13 +25,13 @@ public class Utente {
     private String tipo; // Vincolo: 'C' o 'A'
 
     @OneToMany(mappedBy = "utente")
-    private ArrayList<Acquisto> acquisti;
+    private List<Acquisto> acquisti;
 
-    public ArrayList<Acquisto> getAcquisti() {
+    public List<Acquisto> getAcquisti() {
         return acquisti;
     }
 
-    public void setAcquisti(ArrayList<Acquisto> acquisti) {
+    public void setAcquisti(List<Acquisto> acquisti) {
         this.acquisti = acquisti;
     }
 

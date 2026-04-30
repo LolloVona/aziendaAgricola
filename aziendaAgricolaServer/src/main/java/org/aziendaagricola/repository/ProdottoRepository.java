@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProdottoRepository extends JpaRepository<Prodotto, Long> {
     // Spring genera automaticamente la query per noi!
-    boolean existsByNomeProdotto(String nomeProdotto);
+    boolean existsByNome(String nome);
 }

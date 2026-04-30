@@ -1,15 +1,21 @@
 package org.aziendaagricola.DTO;
 
 public class ProdottoCreateDTO {
-    private String nomeProdotto;
+    private String nome;
     private Float prezzo;
-    private Float quantita;
+    private Float magazzino;
     private Float disponibilita;
+    private Integer idUtente;
 
     // Metodo di validazione interna (non tocca il DB)
     public boolean isValido() {
-        if (prezzo == null || quantita == null || disponibilita == null) return false;
-        return prezzo >= 0 && quantita >= 0 && disponibilita >= 0 && disponibilita <= quantita;
+        if(magazzino==null)
+            magazzino=(float)0;
+        if(disponibilita==null)
+            disponibilita= (float) 0;
+        if(prezzo >= 0 && magazzino >= 0 && disponibilita >= 0 && disponibilita <= magazzino&&prezzo!=null&&nome!=null&&nome.isBlank()==false)
+            return true;
+        return false;
     }
 
     public Float getDisponibilita() {
@@ -20,12 +26,12 @@ public class ProdottoCreateDTO {
         this.disponibilita = disponibilita;
     }
 
-    public String getNomeProdotto() {
-        return nomeProdotto;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeProdotto(String nomeProdotto) {
-        this.nomeProdotto = nomeProdotto;
+    public void setNome(String nomeProdotto) {
+        this.nome = nomeProdotto;
     }
 
     public Float getPrezzo() {
@@ -36,12 +42,20 @@ public class ProdottoCreateDTO {
         this.prezzo = prezzo;
     }
 
-    public Float getQuantita() {
-        return quantita;
+    public Float getMagazzino() {
+        return magazzino;
     }
 
-    public void setQuantita(Float quantita) {
-        this.quantita = quantita;
+    public void setMagazzino(Float magazzino) {
+        this.magazzino = magazzino;
+    }
+
+    public Integer getIdUtente() {
+        return idUtente;
+    }
+
+    public void setIdUtente(Integer idUtente) {
+        this.idUtente = idUtente;
     }
 }
 

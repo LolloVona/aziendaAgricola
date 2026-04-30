@@ -40,13 +40,18 @@ public class ProdottoController {
     disponibilita:float
     * */
     public ResponseEntity<String> aggiungi(@RequestBody ProdottoCreateDTO dto) {
-        //TODO controllo che l'utente sia di tipo A
+        // 1. Validazione base dell'input
+        if (dto.getIdUtente() == null) {
+            return ResponseEntity.status(400).body("ID utente mancante.");
+        }
+
+        // 2. Chiamata al service
         boolean successo = prodottoService.salvaProdotto(dto);
 
         if (successo) {
             return ResponseEntity.status(201).body("Ottimo! Prodotto creato.");
         } else {
-            return ResponseEntity.status(400).body("Dati non validi o nome già presente.");
+            return ResponseEntity.status(403).body("Operazione non consentita o dati non validi.");
         }
     }
 }
