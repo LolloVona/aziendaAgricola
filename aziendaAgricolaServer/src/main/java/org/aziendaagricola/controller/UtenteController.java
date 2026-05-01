@@ -17,7 +17,7 @@ public class UtenteController {
     @Autowired
     private UtenteService utenteService;
 
-    @PostMapping("/registra")
+    @PostMapping("/registrazione")
     private ResponseEntity<Object> registra(@RequestBody UtenteCreateDTO dto){
         if(dto.convalidaDati()) {
             if (utenteService.salva(dto)){
@@ -38,7 +38,7 @@ public class UtenteController {
         }
     }
 
-    @PostMapping("/accedi")
+    @PostMapping("/accesso")
     private ResponseEntity<Object> accedi(@RequestBody UtenteAccediDTO dto){
         if(dto.convalidaDati()){
             int id= utenteService.credenzialiCorrette(dto);
