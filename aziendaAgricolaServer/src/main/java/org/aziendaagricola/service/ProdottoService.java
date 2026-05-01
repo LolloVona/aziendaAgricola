@@ -53,8 +53,7 @@ public class ProdottoService {
         nuovo.setNome(dto.getNome());
         nuovo.setPrezzo(dto.getPrezzo());
         nuovo.setMagazzino(dto.getMagazzino());
-        nuovo.setDisponibilita(dto.getDisponibilita());
-
+        nuovo.setDisponibilita(dto.getMagazzino());
         repository.save(nuovo);
         return true;
     }

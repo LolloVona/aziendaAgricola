@@ -4,27 +4,18 @@ public class ProdottoCreateDTO {
     private String nome;
     private Float prezzo;
     private Float magazzino;
-    private Float disponibilita;
     private Integer idUtente;
 
     // Metodo di validazione interna (non tocca il DB)
     public boolean isValido() {
         if(magazzino==null)
             magazzino=(float)0;
-        if(disponibilita==null)
-            disponibilita= (float) 0;
-        if(prezzo >= 0 && magazzino >= 0 && disponibilita >= 0 && disponibilita <= magazzino&&prezzo!=null&&nome!=null&&nome.isBlank()==false)
+        if(prezzo >= 0 && magazzino >= 0 &&prezzo!=null&&nome!=null&&nome.isBlank()==false)
             return true;
         return false;
     }
 
-    public Float getDisponibilita() {
-        return disponibilita;
-    }
 
-    public void setDisponibilita(Float disponibilita) {
-        this.disponibilita = disponibilita;
-    }
 
     public String getNome() {
         return nome;

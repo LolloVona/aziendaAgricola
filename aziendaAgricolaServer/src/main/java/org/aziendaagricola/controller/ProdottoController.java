@@ -1,5 +1,6 @@
 package org.aziendaagricola.controller;
 import org.aziendaagricola.DTO.ProdottoCreateDTO;
+import org.aziendaagricola.record.Errore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,24 +38,27 @@ public class ProdottoController {
     nome:String
     prezzo:float
     magazzino:float
-    disponibilita:float
     * */
-    public ResponseEntity<String> aggiungi(@RequestBody ProdottoCreateDTO dto) {
-        //TODO sistemare codici
+    public ResponseEntity<Object> aggiungi(@RequestBody ProdottoCreateDTO dto) {
         // 1. Validazione base dell'input
         if (dto.getIdUtente() == null) {
-            return ResponseEntity.status(400).body("ID utente mancante.");
+            Errore body=new Errore("Id utente mancante");
+            return ResponseEntity.status(400).body(body);
         }
-        if (!dto.isValido())
-            return ResponseEntity.badRequest().body("Dati non validi");//errore dati nella body
+        if (!dto.isValido()){
+            Errore body=new Errore("Dati non validi");
+            return ResponseEntity.status(400).body(body);//errore dati nella body
+        }
+
 
         // 2. Chiamata al service
         boolean successo = prodottoService.salvaProdotto(dto);
 
         if (successo) {
-            return ResponseEntity.status(201).body("Ottimo! Prodotto creato.");
+            Errore body=new Errore("Prodotto creato");
+            return ResponseEntity.status(201).body("Prodotto creato");
         } else {
-            return ResponseEntity.status(403).body("Operazione non consentita o dati non validi.");
+            return ResponseEntity.status(403).body("Non sei admin");
         }
     }
 }
