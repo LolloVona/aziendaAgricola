@@ -1,4 +1,5 @@
 package org.aziendaagricola.controller;
+import jakarta.transaction.Transactional;
 import org.aziendaagricola.DTO.ProdottoCreateDTO;
 import org.aziendaagricola.DTO.ProdottoDeleteDTO;
 import org.aziendaagricola.record.Errore;
@@ -7,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.aziendaagricola.service.ProdottoService;
 
+import java.beans.Transient;
 import java.util.Map;
 
 @RestController
@@ -39,9 +41,28 @@ public class ProdottoController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Object> elimina(@PathVariable("id") int id, @RequestBody ProdottoDeleteDTO dto){
-        return null;
+    @DeleteMapping("/{nomeProdotto}")
+    @Transactional
+    public ResponseEntity<Object> elimina(@PathVariable("nomeProdotto") String nome, @RequestBody ProdottoDeleteDTO dto){
+        if(dto.getIdUtente()==null){
+            Errore body=new Errore("Id utente mancante");
+            return ResponseEntity.status(400).body(body);
+        }
+        if(!prodottoService.isAdmin(dto.getIdUtente())){
+            Errore body=new Errore("Non sei admin");
+            return ResponseEntity.status(403).body(body);
+        }
+        if(prodottoService.eliminaProdotto(nome)){
+            //TODO:file di log
+            Errore body=new Errore("Prodotto eliminato");
+            return ResponseEntity.status(204).body(body);
+        }
+        else{
+            Errore body=new Errore("Dati non validi");
+            return ResponseEntity.status(400).body(body);
+        }
+
+
     }
 }
 
