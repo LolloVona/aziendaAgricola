@@ -30,8 +30,10 @@ public class ProdottoController {
         boolean successo = prodottoService.salvaProdotto(dto);
 
         if (successo) {
-            //TODO: file di log e aggiunta a tabella aggiornamento
-            //Log log=new Log();
+            //TODO: file di log e aggiunta a tabella aggiornamento (gli devo passare l'idAggiornamento)
+            int idAggiornamento=0;
+            prodottoService.scriviLog(dto.getNome(),dto.getIdUtente(),"C",idAggiornamento);
+
             Errore body=new Errore("Prodotto creato");
 
             return ResponseEntity.status(201).body(body);

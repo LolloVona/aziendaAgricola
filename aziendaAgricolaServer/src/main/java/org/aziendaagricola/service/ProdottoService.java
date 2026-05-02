@@ -1,7 +1,10 @@
 package org.aziendaagricola.service;
 import org.aziendaagricola.DTO.ProdottoCreateDTO;
 import org.aziendaagricola.DTO.ProdottoReadDTO;
+import org.aziendaagricola.LogAggiornamento;
+import org.aziendaagricola.entita.Aggiornamento;
 import org.aziendaagricola.entita.Prodotto;
+import org.aziendaagricola.repository.AggiornamentoRepository;
 import org.aziendaagricola.repository.ProdottoRepository;
 import org.aziendaagricola.repository.UtenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,5 +94,12 @@ public class ProdottoService {
         p.setPrezzo(nuovoPrezzo);
         repository.save(p);
         return true;
+    }
+
+    public void scriviLog(String nomeProdotto, int idUtente, String tipo,int idAggiornamento) {
+        int idProdotto=repository.findByNome(nomeProdotto).getIdProdotto();
+        String nomeUtente=utenteRepository.getUsernameByIdUtente((idUtente));
+        LogAggiornamento log=new LogAggiornamento(idProdotto,idUtente,nomeProdotto,nomeUtente,tipo,idAggiornamento);
+        log.scrivi();
     }
 }
