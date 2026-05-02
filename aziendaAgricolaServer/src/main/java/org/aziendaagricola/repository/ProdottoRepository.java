@@ -9,4 +9,6 @@ public interface ProdottoRepository extends JpaRepository<Prodotto, Integer> {
     boolean existsByNome(String nome);
 
     void deleteByNome(String nome);
+
+    Prodotto findByNome(String nome);
 }

@@ -1,5 +1,6 @@
 package org.aziendaagricola.service;
 import org.aziendaagricola.DTO.ProdottoCreateDTO;
+import org.aziendaagricola.DTO.ProdottoReadDTO;
 import org.aziendaagricola.entita.Prodotto;
 import org.aziendaagricola.entita.Utente;
 import org.aziendaagricola.repository.ProdottoRepository;
@@ -7,6 +8,8 @@ import org.aziendaagricola.repository.UtenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -45,5 +48,31 @@ public class ProdottoService {
         }
        repository.deleteByNome(nome);
         return true;
+    }
+
+    public boolean esisteProdotto(String nome) {
+        return repository.existsByNome(nome);
+    }
+    public ProdottoReadDTO getProdottoByNome(String nome) {
+        Prodotto pro=repository.findByNome(nome);
+        ProdottoReadDTO p=new ProdottoReadDTO();
+        p.setNome(pro.getNome());
+        p.setPrezzo(pro.getPrezzo());
+        p.setDisponibilita(pro.getDisponibilita());
+        return p;
+
+    }
+
+    public ArrayList<ProdottoReadDTO> getProdotti() {
+        List<Prodotto>p=repository.findAll();
+        ArrayList<ProdottoReadDTO> prodotti=new ArrayList<>();
+        for(int i=0;i<p.size();i++){
+            ProdottoReadDTO dto = new ProdottoReadDTO();
+            dto.setNome(p.get(i).getNome());
+            dto.setPrezzo(p.get(i).getPrezzo());
+            dto.setDisponibilita(p.get(i).getDisponibilita());
+            prodotti.add(dto);
+        }
+        return prodotti;
     }
 }
