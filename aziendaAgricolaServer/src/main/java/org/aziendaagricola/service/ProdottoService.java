@@ -2,15 +2,13 @@ package org.aziendaagricola.service;
 import org.aziendaagricola.DTO.ProdottoCreateDTO;
 import org.aziendaagricola.DTO.ProdottoReadDTO;
 import org.aziendaagricola.entita.Prodotto;
-import org.aziendaagricola.entita.Utente;
 import org.aziendaagricola.repository.ProdottoRepository;
 import org.aziendaagricola.repository.UtenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class ProdottoService {
@@ -74,5 +72,24 @@ public class ProdottoService {
             prodotti.add(dto);
         }
         return prodotti;
+    }
+
+    public boolean modificaNomeProdotto(String nuovoNome, String vecchioNome) {
+        if(!esisteProdotto(vecchioNome))
+            return false;
+        Prodotto p=repository.findByNome(vecchioNome);
+        System.out.println(nuovoNome);
+        p.setNome(nuovoNome);
+        repository.save(p);
+        return true;
+    }
+
+    public boolean modificaPrezzoProdotto(float nuovoPrezzo, String nome) {
+        if(!esisteProdotto(nome))
+            return false;
+        Prodotto p=repository.findByNome(nome);
+        p.setPrezzo(nuovoPrezzo);
+        repository.save(p);
+        return true;
     }
 }

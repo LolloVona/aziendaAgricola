@@ -1,8 +1,6 @@
 package org.aziendaagricola.controller;
 import jakarta.transaction.Transactional;
-import org.aziendaagricola.DTO.ProdottoCreateDTO;
-import org.aziendaagricola.DTO.ProdottoDeleteDTO;
-import org.aziendaagricola.DTO.ProdottoReadDTO;
+import org.aziendaagricola.DTO.*;
 import org.aziendaagricola.record.Errore;
 import org.aziendaagricola.record.Prodotto.GetProdottiRecord;
 import org.aziendaagricola.record.Prodotto.GetProdottoRecord;
@@ -65,6 +63,48 @@ public class ProdottoController {
         }
     }
 
+    @PutMapping("/nome/{nuovoNome}")
+    public ResponseEntity<Object> cambiaNome(@RequestBody ProdottoUpdateNomeDTO dto, @PathVariable("nuovoNome") String nuovoNome) {
+        if(dto.getIdUtente()==null){
+            Errore body=new Errore("Id utente mancante");
+            return ResponseEntity.status(400).body(body);
+        }
+        if(!prodottoService.isAdmin(dto.getIdUtente())){
+            Errore body=new Errore("Non sei admin");
+            return ResponseEntity.status(403).body(body);
+        }
+        if(prodottoService.modificaNomeProdotto(nuovoNome, dto.getNome())){
+            //TODO:file di log e aggiunta a tabella aggiornamento
+            Errore body=new Errore("Prodotto modificato");
+            return ResponseEntity.status(204).body(body);
+        }
+        else{
+            Errore body=new Errore("Dati non validi");
+            return ResponseEntity.status(400).body(body);
+        }
+    }
+
+    @PutMapping("/prezzo/{prezzo}")
+    public ResponseEntity<Object> cambiaPrezzo(@RequestBody ProdottoUpdatePrezzoDTO dto, @PathVariable("prezzo") float nuovoPrezzo) {
+        if(dto.getIdUtente()==null){
+            Errore body=new Errore("Id utente mancante");
+            return ResponseEntity.status(400).body(body);
+        }
+        if(!prodottoService.isAdmin(dto.getIdUtente())){
+            Errore body=new Errore("Non sei admin");
+            return ResponseEntity.status(403).body(body);
+        }
+        if(prodottoService.modificaPrezzoProdotto(nuovoPrezzo, dto.getNome())){
+            //TODO:file di log e aggiunta a tabella aggiornamento
+            Errore body=new Errore("Prodotto modificato");
+            return ResponseEntity.status(204).body(body);
+        }
+        else{
+            Errore body=new Errore("Dati non validi");
+            return ResponseEntity.status(400).body(body);
+        }
+    }
+
     @GetMapping()
     public ResponseEntity<Object> getProdotti() {
         ArrayList <ProdottoReadDTO> prodotto=prodottoService.getProdotti();
@@ -85,8 +125,7 @@ public class ProdottoController {
         }
     }
 
-    @PutMapping
-    public ResponseEntity<Object> putProdotto(@RequestBody ProdottoUpdateDTO dto) {}
+
 }
 
 
