@@ -28,4 +28,10 @@ public class ProdottoUpdatePrezzoDTO {
     public void setPrezzo(float prezzo) {
         this.prezzo = prezzo;
     }
+
+    public boolean isValido() {
+        if(idUtente==null||nome==null||nome.isBlank()||prezzo==0)
+            return false;
+        return true;
+    }
 }

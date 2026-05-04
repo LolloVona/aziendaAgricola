@@ -9,4 +9,11 @@ public class ProdottoDeleteDTO {
     public void setIdUtente(Integer idUtente) {
         this.idUtente = idUtente;
     }
+
+    public boolean isValido() {
+        if (idUtente == null) {
+            return false;
+        }
+        return true;
+    }
 }

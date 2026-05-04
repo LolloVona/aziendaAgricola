@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.aziendaagricola.service.ProdottoService;
 
 import java.util.ArrayList;
-
 @RestController
 @RequestMapping("/api/prodotto")
 public class ProdottoController {
@@ -50,6 +49,10 @@ public class ProdottoController {
             Errore body=new Errore("Id utente mancante");
             return ResponseEntity.status(400).body(body);
         }
+        if (!dto.isValido()){//controllo se dto è valido?
+            Errore body=new Errore("Dati non validi");
+            return ResponseEntity.status(400).body(body);//errore dati nella body
+        }
         if(!prodottoService.isAdmin(dto.getIdUtente())){
             Errore body=new Errore("Non sei admin");
             return ResponseEntity.status(403).body(body);
@@ -71,6 +74,10 @@ public class ProdottoController {
             Errore body=new Errore("Id utente mancante");
             return ResponseEntity.status(400).body(body);
         }
+        if (!dto.isValido()){//controllo se dto è valido?
+            Errore body=new Errore("Dati non validi");
+            return ResponseEntity.status(400).body(body);//errore dati nella body
+        }
         if(!prodottoService.isAdmin(dto.getIdUtente())){
             Errore body=new Errore("Non sei admin");
             return ResponseEntity.status(403).body(body);
@@ -91,6 +98,10 @@ public class ProdottoController {
         if(dto.getIdUtente()==null){
             Errore body=new Errore("Id utente mancante");
             return ResponseEntity.status(400).body(body);
+        }
+        if (!dto.isValido()){//controllo se dto è valido?
+            Errore body=new Errore("Dati non validi");
+            return ResponseEntity.status(400).body(body);//errore dati nella body
         }
         if(!prodottoService.isAdmin(dto.getIdUtente())){
             Errore body=new Errore("Non sei admin");

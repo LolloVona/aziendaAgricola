@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProssimoRaccoltoRepository extends JpaRepository<ProssimoRaccolto, Integer> {
+    boolean existsByNome(String nome);
+
+    int getIdByNome(String nome);
+
 }

@@ -19,4 +19,10 @@ public class ProdottoUpdateNomeDTO {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public boolean isValido() {
+        if(idUtente==null||nome==null||nome.isBlank())
+            return false;
+        return true;
+    }
 }
