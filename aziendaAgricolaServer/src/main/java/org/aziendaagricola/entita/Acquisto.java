@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Table(name = "acquisto")
 public class Acquisto {
         @Id
-        private int numero_fattura;
+        private int numeroFattura;
 
         @Column(nullable = false)
         private LocalDate data;
@@ -20,6 +20,9 @@ public class Acquisto {
         @JoinColumn(name = "id_utente")
         private Utente utente;
 
+        @Column(nullable = false)
+        private LocalDate dataErogazione;
+
     public LocalDate getData() {
         return data;
     }
@@ -28,12 +31,12 @@ public class Acquisto {
         this.data = data;
     }
 
-    public int getNumero_fattura() {
-        return numero_fattura;
+    public int getNumeroFattura() {
+        return numeroFattura;
     }
 
-    public void setNumero_fattura(int numero_fattura) {
-        this.numero_fattura = numero_fattura;
+    public void setNumeroFattura(int numeroFattura) {
+        this.numeroFattura = numeroFattura;
     }
 
     public float getTotale() {
@@ -50,5 +53,13 @@ public class Acquisto {
 
     public void setUtente(Utente utente) {
         this.utente = utente;
+    }
+
+    public LocalDate getDataErogazione() {
+        return dataErogazione;
+    }
+
+    public void setDataErogazione(LocalDate dataErogazione) {
+        this.dataErogazione = dataErogazione;
     }
 }

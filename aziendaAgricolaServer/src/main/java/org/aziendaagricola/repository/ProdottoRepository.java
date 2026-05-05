@@ -11,4 +11,8 @@ public interface ProdottoRepository extends JpaRepository<Prodotto, Integer> {
     void deleteByNome(String nome);
 
     Prodotto findByNome(String nome);
+
+    int getDisponibilitaByNome(String nome);
+
+    int getIdByNome(String nome);
 }

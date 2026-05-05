@@ -18,7 +18,7 @@ public class Relativo {
     @JoinColumn(name = "id_prodotto")
     private Prodotto prodotto;
 
-    private int quantita;
+    private float quantita;
 
     public Acquisto getAcquisto() {
         return acquisto;
@@ -44,11 +44,11 @@ public class Relativo {
         this.prodotto = prodotto;
     }
 
-    public int getQuantita() {
+    public float getQuantita() {
         return quantita;
     }
 
-    public void setQuantita(int quantita) {
+    public void setQuantita(float quantita) {
         this.quantita = quantita;
     }
 }

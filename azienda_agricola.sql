@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 03, 2026 alle 18:31
+-- Creato il: Mag 05, 2026 alle 19:04
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.0.30
 
@@ -31,7 +31,8 @@ CREATE TABLE `acquisto` (
   `numero_fattura` int(11) NOT NULL,
   `data` date NOT NULL,
   `totale` float NOT NULL CHECK (`totale` > 0),
-  `id_utente` int(11) DEFAULT NULL
+  `id_utente` int(11) DEFAULT NULL,
+  `data_erogazione` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -96,7 +97,7 @@ CREATE TABLE `prossimoraccolto` (
 CREATE TABLE `relativo` (
   `numero_fattura` int(11) NOT NULL,
   `id_prodotto` int(11) NOT NULL,
-  `quantita` int(11) DEFAULT NULL CHECK (`quantita` > 0)
+  `quantita` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
