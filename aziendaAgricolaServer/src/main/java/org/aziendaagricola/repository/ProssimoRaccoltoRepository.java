@@ -11,13 +11,13 @@ import java.util.List;
 
 @Repository
 public interface ProssimoRaccoltoRepository extends JpaRepository<ProssimoRaccolto, Integer> {
-    boolean existsByNome(String nome);
+    boolean existsByProdottoNome(String nome);
 
-    int getIdByNome(String nome);
+    int getIdByProdottoNome(String nome);
 
     @Query("SELECT SUM(r.disponibilita) FROM ProssimoRaccolto r WHERE r.prodotto.idProdotto = :idProdotto")
     Float getSommaDisponibilitaById(@Param("idProdotto") int idProdotto);
 
-    List<ProssimoRaccolto> findByProdottoIdOrderByDataAsc(int prodottoId);
+    List<ProssimoRaccolto> findByProdottoIdProdottoOrderByDataAsc(int idProdotto);
 
 }

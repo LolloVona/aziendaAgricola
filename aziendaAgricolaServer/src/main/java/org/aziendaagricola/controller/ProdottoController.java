@@ -121,7 +121,7 @@ public class ProdottoController {
     @GetMapping()
     public ResponseEntity<Object> getProdotti() {
         ArrayList <ProdottoReadDTO> prodotto=prodottoService.getProdotti();
-        GetProdottiRecord body=new GetProdottiRecord(prodotto);
+        GetProdottiRecord body=new GetProdottiRecord(prodotto,"Prodotto trovato");
         return ResponseEntity.status(200).body(body);
     }
 
