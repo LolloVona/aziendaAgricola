@@ -22,7 +22,7 @@ public class AcquistoService {
     @Autowired
     private ProssimoRaccoltoRepository raccoltoRepository;
     @Autowired
-    private RelativoRePository relativoRepository;
+    private RelativoRepository relativoRepository;
     @Autowired
     private UtenteRepository utenteRepository;
     public boolean isValido(AcquistoCreateDTO dto) {

@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface RelativoRePository extends JpaRepository<Relativo, IdRelativo> {
+public interface RelativoRepository extends JpaRepository<Relativo, IdRelativo> {
 }

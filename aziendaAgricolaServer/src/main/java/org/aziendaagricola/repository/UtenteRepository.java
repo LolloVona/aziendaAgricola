@@ -10,6 +10,7 @@ public interface UtenteRepository extends JpaRepository<Utente, Integer> {
 
     Utente getUtenteByUsername(String username);
 
-    String getUsernameByIdUtente(int idUtente);
+    Utente getUsernameByIdUtente(int idUtente);
 
+    Utente getTipoByIdUtente(int idUtente);
 }

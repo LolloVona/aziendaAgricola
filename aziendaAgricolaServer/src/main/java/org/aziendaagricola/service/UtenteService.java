@@ -43,4 +43,11 @@ public class UtenteService {
         return -1;
 
     }
+    public String getTipo(int idUtente){
+        if(utenteRepository.existsById(idUtente)){
+            return utenteRepository.getTipoByIdUtente(idUtente).getTipo();
+        }
+        return null;
+
+    }
 }

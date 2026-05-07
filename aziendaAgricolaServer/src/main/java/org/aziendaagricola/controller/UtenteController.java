@@ -1,8 +1,10 @@
 package org.aziendaagricola.controller;
 import org.aziendaagricola.DTO.UtenteAccediDTO;
 import org.aziendaagricola.DTO.UtenteCreateDTO;
+import org.aziendaagricola.DTO.UtenteTipoDTO;
 import org.aziendaagricola.record.Errore;
 import org.aziendaagricola.record.utente.RegistrazioneResponse;
+import org.aziendaagricola.record.utente.TipoResponse;
 import org.aziendaagricola.service.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -55,6 +57,20 @@ public class UtenteController {
             return ResponseEntity.status(400).body(body);//errore inserimento dati
         }
 
+    }
+    @GetMapping("/tipo")
+    private ResponseEntity<Object> tipo(@RequestBody UtenteTipoDTO dto){
+        if(dto.getIdUtente()==null){
+            Errore body=new Errore("Id utente mancante");
+            return ResponseEntity.status(400).body(body);
+        }
+        String tipo=utenteService.getTipo(dto.getIdUtente());
+        if(tipo==null){
+            Errore body=new Errore("Dati non validi");
+            return ResponseEntity.status(400).body(body);
+        }
+        TipoResponse body=new TipoResponse(tipo);
+        return ResponseEntity.status(200).body(body);
     }
 
 

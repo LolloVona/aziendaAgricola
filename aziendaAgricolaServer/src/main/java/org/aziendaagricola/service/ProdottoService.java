@@ -98,7 +98,7 @@ public class ProdottoService {
 
     public void scriviLog(String nomeProdotto, int idUtente, String tipo,int idAggiornamento) {
         int idProdotto=repository.findByNome(nomeProdotto).getIdProdotto();
-        String nomeUtente=utenteRepository.getUsernameByIdUtente((idUtente));
+        String nomeUtente=utenteRepository.getUsernameByIdUtente((idUtente)).getUsername();
         LogAggiornamento log=new LogAggiornamento(idProdotto,idUtente,nomeProdotto,nomeUtente,tipo,idAggiornamento);
         log.scrivi();
     }
