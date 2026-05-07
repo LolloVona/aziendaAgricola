@@ -11,10 +11,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="../assets/css/log.css" />
   <link rel="stylesheet" href="../assets/css/style.css" />
+  
 
   <script src="../assets/js/client.js"></script>
+  <script src="../assets/js/inside.js"></script>
 </head>
-<body>
+<body onload="prodotti();">
   <header class="site-header">
     <div class="topbar">
       <div class="container topbar__grid">
@@ -38,13 +40,35 @@
           <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
         </div>
         <button class="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
-        <button class="search" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <div class="cart-widget">
+                            <div class="cart-icon-wrap">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                                <span id="cart-count">0</span>
+                           </div>
+
+                          <div class="cart-info">
+                              <h3>Carrello</h3>
+                              <p id="cart-total">0,00 €</p>
+                          </div>
+                      </div>
       </div>
       <div class="hr-fancy">
             <span><i class="fa-solid fa-leaf"></i></span>
       </div>
     </nav>
-    <br><br><br><br>
+    </header>
+
+    <!--    *********************************INIZIO PAGE *******************************+                 -->
+    <div class="f">
+      <h1>PRODOTTI DELLA SETTIMANA</h1>
+    </div> 
+    
+    <div id="container-prodotti">
+       
+    </div>
+
+
+  
 
   <footer class="footer">
     <div class="grass"></div>

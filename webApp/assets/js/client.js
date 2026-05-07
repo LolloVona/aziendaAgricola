@@ -1,3 +1,14 @@
+/*
+*** FRUTTA IN CAMPO™ 2026© - This code is protected
+
+        •Questo script.js serve per il codice js per gestire,
+            tutte le funzioni utili all'accesso e/o registrazione degli utenti.
+            
+
+*/
+
+
+
 async function accedi(){
     var us = document.getElementById('us').value;
     var pw = document.getElementById('pw').value;
@@ -19,7 +30,7 @@ async function accedi(){
 
     switch(response.status){
         case 201:
-                window.location.href = "area-riservata.html";
+                window.location.href = "client.html";
                 break;
         case 400:
                 document.getElementById('err').style.display = "block";
