@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import org.aziendaagricola.service.ProdottoService;
 
 import java.util.ArrayList;
+
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/prodotto")
 public class ProdottoController {
