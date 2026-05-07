@@ -19,13 +19,14 @@ async function accedi(){
 
     switch(response.status){
         case 201:
-                alert('Login Effettuato');
+                window.location.href = "area-riservata.html";
                 break;
         case 400:
-                alert('errore server Code: 400');
+                document.getElementById('err').style.display = "block";
+                document.getElementById('err').innerText = "Error server code: 400";
                 break;
         case 401:
-                alert('Credenziali non valide');
+                document.getElementById('cred').style.display = "block";
                 break;
         default:
                 alert('entrato in default case'+ 'COD: '+response.status);
@@ -56,13 +57,14 @@ async function registrati(){
 
     switch(response.status){
         case 201:
-                alert('Utente Creato!');
+                document.getElementById('yes').style.display = "block";
                 break;
         case 400:
-                alert('errore server Code: 400');
+                document.getElementById('err').style.display = "block";
+                document.getElementById('err').innerText = "Error server code: 400";
                 break;
         case 409:
-                alert('Utente già presente');
+                document.getElementById('esi').style.display = "block";
                 break;
         default:
                 alert('default case');
