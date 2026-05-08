@@ -1,7 +1,6 @@
 package org.aziendaagricola.controller;
 
 import org.aziendaagricola.DTO.*;
-import org.aziendaagricola.entita.Acquisto;
 import org.aziendaagricola.record.Acquisto.AcquistoResponse;
 import org.aziendaagricola.record.Acquisto.OrdineDaErogareRecord;
 import org.aziendaagricola.record.Errore;
@@ -9,9 +8,8 @@ import org.aziendaagricola.service.AcquistoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
-import java.util.List;
+
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api/acquisto")

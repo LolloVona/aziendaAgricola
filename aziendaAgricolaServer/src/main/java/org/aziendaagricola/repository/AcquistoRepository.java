@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
 @Repository
 public interface AcquistoRepository extends JpaRepository<Acquisto, Integer> {

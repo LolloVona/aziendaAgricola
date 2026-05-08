@@ -26,19 +26,18 @@ public class AcquistoService {
     @Autowired
     private UtenteRepository utenteRepository;
     public boolean isValido(AcquistoCreateDTO dto) {
-        ArrayList<Informazioni> prodotti= new ArrayList<>();
-        float somma,richiesta;
+        ArrayList<Informazioni> prodotti=dto.getProdotti();
+        Float somma,richiesta;
         int id;
-        prodotti=dto.getProdotti();
         for(int i=0;i<prodotti.size();i++){
-            somma=0;
-            richiesta=prodotti.get(i).getQuantita();
+            somma= (float) 0;
+            richiesta=(float) prodotti.get(i).getQuantita();
             String nome=prodotti.get(i).getNome();
-            somma=somma+prodottoRepository.getDisponibilitaByNome(nome);
+            somma=somma+prodottoRepository.getDisponibilitaByNome(nome).getDisponibilita();
             if(somma<richiesta){
-                id=prodottoRepository.getIdByNome(nome);
+                id=prodottoRepository.getIdByNome(nome).getIdProdotto();
                 somma=somma+raccoltoRepository.getSommaDisponibilitaById(id);
-                if(somma<richiesta)
+                if(somma<richiesta||somma==null)
                     return false;
             }
         }
@@ -151,13 +150,17 @@ public class AcquistoService {
         acquisto.setUtente(u);
         acquisto.setDataErogazione(dataProntoOrdine);
         repository.save(acquisto);
-        ArrayList<Informazioni> prodotti=new ArrayList<>();
+        ArrayList<Informazioni> prodotti=dto.getProdotti();
         for(int i=0;i<prodotti.size();i++){
             Relativo relativo = new Relativo();
+            IdRelativo id = new IdRelativo();
             relativo.setAcquisto(acquisto);
             String nome = prodotti.get(i).getNome();
             float richiesta = prodotti.get(i).getQuantita();
             Prodotto p = prodottoRepository.findByNome(nome);
+            id.setNumero_fattura(acquisto.getNumeroFattura());
+            id.setId_prodotto(p.getIdProdotto());
+            relativo.setId(id);
             relativo.setProdotto(p);
             relativo.setQuantita(richiesta);
             relativoRepository.save(relativo);

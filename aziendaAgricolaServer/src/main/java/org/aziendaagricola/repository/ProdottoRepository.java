@@ -12,7 +12,7 @@ public interface ProdottoRepository extends JpaRepository<Prodotto, Integer> {
 
     Prodotto findByNome(String nome);
 
-    int getDisponibilitaByNome(String nome);
+    Prodotto getDisponibilitaByNome(String nome);
 
-    int getIdByNome(String nome);
+    Prodotto getIdByNome(String nome);
 }
