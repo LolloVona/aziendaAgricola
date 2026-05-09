@@ -2,7 +2,7 @@
 *** FRUTTA IN CAMPO™ 2026© - This code is protected
 
         •Questo script.js serve per il codice js per gestire,
-            tutte le funzioni utili all'accesso e/o registrazione degli utenti.
+            tutte le funzioni utili all'accesso e/o registrazione degli utenti .
             
 
 */
