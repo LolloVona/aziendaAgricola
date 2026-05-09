@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frutta In Campo™</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="../assets/img/icon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/log.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/client.css" >
+  
+
+  <script src="../assets/js/client.js"></script>
+  <script src="../assets/js/inside.js"></script>
+</head>
+<body onload="prodotti();">
+  <header class="site-header">
+    <div class="topbar">
+      <div class="container topbar__grid">
+        <div class="topbar__item"><img src="https://wp-themes.com/wp-content/themes/green-vegetable-store/images/location.png" alt="">Gorgonzola, MI 20064</div>
+        <div class="topbar__item"><img src="https://wp-themes.com/wp-content/themes/green-vegetable-store/images/mail.png" alt=""> assistenza@fruttaincampo.com</div>
+        <a href="../index.html" class="brand">Frutta In Campo</a>
+        <div class="topbar__item"><img src="https://wp-themes.com/wp-content/themes/green-vegetable-store/images/call.png" alt=""> +44 20 08061955</div>
+        <div class="topbar__item"><img src="https://wp-themes.com/wp-content/themes/green-vegetable-store/images/clock.png" alt=""> Lun – Sab: 09.00 alle 18.30</div>
+      </div>
+    </div>
+
+    <nav class="navbar">
+      <div class="container navwrap">
+        <div>
+            <img src="../assets/img/icon.ico" width="50px" style="transform: scale(1.40);"> 
+        </div>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <button class="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+                        <div class="cart-widget">
+                            <div class="cart-icon-wrap">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                                <span id="cart-count">0</span>
+                           </div>
+
+                          <div class="cart-info">
+                              <h3>Carrello</h3>
+                              <p id="cart-total">0,00 €</p>
+                          </div>
+                      </div>
+      </div>
+      <div class="hr-fancy">
+            <span><i class="fa-solid fa-leaf"></i></span>
+      </div>
+    </nav>
+    </header>
+
+    <!--    *********************************INIZIO PAGE *******************************+                 -->
+    <div class="f">
+      <h1 style="color:#2e7d32"><i class="fa-solid fa-leaf">PRODOTTI DELLA SETTIMANA</i></h1>
+    </div> 
+    
+    <div id="container-prodotti">
+       
+    </div>
+
+    <div class="f">
+      <button id="ca">Vai al checkout</button>
+    </div>
+
+
+
+    <!-- SEZIONE CHE VA A COMPARSA E SCOMPARSA-->
+          <div id="checkout-overlay" class="checkout-overlay">
+        <div class="checkout-modal">
+          <button id="close-checkout" class="close-checkout">×</button>
+
+          <h2>Riepilogo ordine</h2>
+
+          <div id="checkout-content"></div>
+
+          <button id="conferma-ordine" class="conferma-ordine" onclick="confermaOrdine();">
+            Conferma ordine
+          </button>
+        </div>
+      </div>
+
+    <!----------------------------------------------->
+
+  <footer class="footer">
+    <div class="grass"></div>
+    <div class="container footer__grid">
+      <div class="footer__contact"><img src="https://wp-themes.com/wp-content/themes/green-vegetable-store/images/footer-icon1.png" alt=""><h4>Phone Number</h4><p>+473 3378 901<br>Mon – Sat : 09.00 to 06.00</p></div>
+      <div><h3 class="footer-brand">Green Vegetable Store</h3><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p><div class="footer-socials"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">X</a><a href="#">LinkedIn</a></div></div>
+      <div class="footer__contact"><img src="https://wp-themes.com/wp-content/themes/green-vegetable-store/images/footer-icon2.png" alt=""><h4>Email</h4><p>info@example.com<br>adminname@example.com</p></div>
+      <div><h4>Company</h4><ul><li>About Us</li><li>Our Product</li><li>Our Cases</li><li>News and Events</li></ul></div>
+      <div><h4>Categories</h4><ul><li>Plants</li><li>Herbs</li><li>Fruits</li><li>Vegetables</li></ul></div>
+      <div><h4>Location</h4><p>California, TX 70240 Trasville United Kingdom</p><form><input type="search" placeholder="Search"><button>Search</button></form></div>
+    </div>
+    <div class="copyright">Frutta in Campo™ 2026© - Tutti i diritti sono riservati</div>
+  </footer>
+
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>
