@@ -1,7 +1,6 @@
 package org.aziendaagricola.entita;
 
 import jakarta.persistence.*;
-import org.aziendaagricola.repository.AggiornamentoRepository;
 
 import java.time.LocalDate;
 
@@ -26,9 +25,8 @@ public class Aggiornamento {
     @JoinColumn(name = "id_utente")
     private Utente utente;
 
-    @ManyToOne
-    @JoinColumn(name = "id_prodotto")
-    private Prodotto prodotto;
+    @Column(name="id_prodotto")
+    private Integer prodotto;
 
 
     public String getAttributo_modificato() {
@@ -63,11 +61,11 @@ public class Aggiornamento {
         this.nuovo_valore = nuovo_valore;
     }
 
-    public Prodotto getProdotto() {
+    public Integer getProdotto() {
         return prodotto;
     }
 
-    public void setProdotto(Prodotto prodotto) {
+    public void setProdotto(Integer prodotto) {
         this.prodotto = prodotto;
     }
 

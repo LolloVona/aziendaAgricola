@@ -13,4 +13,6 @@ public interface UtenteRepository extends JpaRepository<Utente, Integer> {
     Utente getUsernameByIdUtente(int idUtente);
 
     Utente getTipoByIdUtente(int idUtente);
+
+    Utente getByIdUtente(Integer idUtente);
 }

@@ -32,7 +32,7 @@ public class ProdottoController {
 
         if (successo) {
             //TODO: file di log e aggiunta a tabella aggiornamento (gli devo passare l'idAggiornamento)
-            int idAggiornamento=0;
+            int idAggiornamento= prodottoService.aggiornamento(dto.getNome(), dto.getIdUtente(), "C");
             prodottoService.scriviLog(dto.getNome(),dto.getIdUtente(),"C",idAggiornamento);
 
             Errore body=new Errore("Prodotto creato");
@@ -59,6 +59,8 @@ public class ProdottoController {
             Errore body=new Errore("Non sei admin");
             return ResponseEntity.status(403).body(body);
         }
+        int idAggiornamento= prodottoService.aggiornamento(nome, dto.getIdUtente(), "D");
+        prodottoService.scriviLog(nome,dto.getIdUtente(),"D",idAggiornamento);
         if(prodottoService.eliminaProdotto(nome)){
             //TODO:file di log e aggiunta a tabella aggiornamento
             Errore body=new Errore("Prodotto eliminato");
@@ -77,20 +79,22 @@ public class ProdottoController {
             return ResponseEntity.status(400).body(body);
         }
         if (!dto.isValido()){//controllo se dto è valido?
-            Errore body=new Errore("Dati non validi");
+            Errore body=new Errore("Dati non validi1");
             return ResponseEntity.status(400).body(body);//errore dati nella body
         }
         if(!prodottoService.isAdmin(dto.getIdUtente())){
             Errore body=new Errore("Non sei admin");
             return ResponseEntity.status(403).body(body);
         }
+
         if(prodottoService.modificaNomeProdotto(nuovoNome, dto.getNome())){
-            //TODO:file di log e aggiunta a tabella aggiornamento
+            int idAggiornamento= prodottoService.aggiornamento(dto.getNome(), dto.getIdUtente(), "U","nome",nuovoNome);
+            //prodottoService.scriviLog(dto.getNome(),dto.getIdUtente(),"U",idAggiornamento);
             Errore body=new Errore("Prodotto modificato");
             return ResponseEntity.status(204).body(body);
         }
         else{
-            Errore body=new Errore("Dati non validi");
+            Errore body=new Errore("Dati non validi2");
             return ResponseEntity.status(400).body(body);
         }
     }
