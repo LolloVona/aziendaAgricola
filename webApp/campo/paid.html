@@ -9,15 +9,19 @@
   <link rel="icon" href="../assets/img/icon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/log.css" />
+  <link rel="stylesheet" href="../assets/css/thanks.css" />
   <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/client.css">
   
-
+  <!-- SCRIPT -->
+  <script>
+    function cambia() {
+      document.getElementById("loginForm").classList.toggle("hidden");
+      document.getElementById("registerForm").classList.toggle("hidden");
+    }
+  </script>
   <script src="../assets/js/client.js"></script>
-  <script src="../assets/js/inside.js"></script>
 </head>
-<body onload="prodotti();">
+<body>
   <header class="site-header">
     <div class="topbar">
       <div class="container topbar__grid">
@@ -41,58 +45,34 @@
           <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
         </div>
         <button class="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
-                        <div class="cart-widget">
-                            <div class="cart-icon-wrap">
-                                <i class="fa-solid fa-basket-shopping"></i>
-                                <span id="cart-count">0</span>
-                           </div>
-
-                          <div class="cart-info">
-                              <h3>Carrello</h3>
-                              <p id="cart-total">0,00 €</p>
-                          </div>
-                      </div>
+        <button class="search" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
       <div class="hr-fancy">
             <span><i class="fa-solid fa-leaf"></i></span>
       </div>
     </nav>
-    </header>
+  </header>
 
-    <!--    *********************************INIZIO PAGE *******************************+                 -->
-    <div class="f">
-      <h1 style="color:#2e7d32"><i class="fa-solid fa-leaf">PRODOTTI DELLA SETTIMANA</i></h1>
-    </div> 
-    
-    <div id="container-prodotti">
-       
+  <div class="f thankyou-section">
+  <div class="thankyou-card">
+    <div class="thankyou-icon">
+      <i class="fa-solid fa-leaf"></i>
     </div>
 
-    <div class="f">
-      <button id="ca">Vai al checkout</button>
-    </div>
+    <h1>Grazie dell'acquisto!</h1>
 
+    <h2>
+      <i class="leaf-text">Acquisto eseguito correttamente</i>
+    </h2>
 
-
-    <!-- SEZIONE CHE VA A COMPARSA E SCOMPARSA-->
-          <div id="checkout-overlay" class="checkout-overlay">
-        <div class="checkout-modal">
-          <button id="close-checkout" class="close-checkout">×</button>
-
-          <h2>Riepilogo ordine</h2>
-
-          <div id="checkout-content"></div>
-
-          <button id="conferma-ordine" class="conferma-ordine" onclick="confermaOrdine();">
-            Conferma ordine
-          </button>
-        </div>
-      </div>
-
-    <!----------------------------------------------->
+    <a href="../index.html" class="home-btn">
+      <i class="fa-solid fa-house"></i>
+      Torna alla home
+    </a>
+  </div>
+</div>
 
   <footer class="footer">
-    <div class="grass"></div>
     <div class="container footer__grid">
       <div class="footer__contact"><img src="https://wp-themes.com/wp-content/themes/green-vegetable-store/images/footer-icon1.png" alt=""><h4>Phone Number</h4><p>+473 3378 901<br>Mon – Sat : 09.00 to 06.00</p></div>
       <div><h3 class="footer-brand">Green Vegetable Store</h3><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p><div class="footer-socials"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">X</a><a href="#">LinkedIn</a></div></div>

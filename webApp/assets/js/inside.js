@@ -270,4 +270,30 @@ function rimuovi(nomeProdotto){
 }
 
 
+/////////////////CONFERMA ORDINE//////////////////////////
+async function confermaOrdine(){
+    const bodyRequest = {
+        idUtente: idUtente,
+        prodotti: carrello.map(p => ({
+            nome: p.nome,
+            quantita: p.quantita
+        }))
+    };
 
+    const response = await fetch("http://localhost:8080/api/acquisto/conferma",{
+        method:"POST",
+        headers:{
+            "Content-type":"application/json"
+        },
+        body:JSON.stringify(bodyRequest)
+    });
+
+    switch(response.status){
+        case 200:   
+                    window.location.href = "paid.html";
+                    break;
+        case 400:
+                    alert('Error 400');
+                    break;
+    }
+}
