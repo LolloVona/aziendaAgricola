@@ -12,7 +12,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: url('https://static.vecteezy.com/ti/foto-gratuito/p2/69892118-trattore-lavorando-nel-campo-a-tramonto-agricoltura-agricoltura-raccolto-rurale-paesaggio-e-sostenibile-pratiche-gratuito-foto.jpg') center/cover no-repeat;
+      background: linear-gradient(135deg, #e8f5e9, #ffffff);
       padding: 40px 20px;
     }
 
@@ -36,13 +36,6 @@
       margin: 10px 0;
       border: 1px solid #ddd;
       border-radius: 8px;
-      font-weight: 700;
-      color:#2e7d32
-    }
-
-    input:focus {
-      border-color: #2e7d32;
-      outline: none;
     }
 
     .auth-box button {

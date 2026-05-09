@@ -689,7 +689,7 @@ a {
     color: var(--green);
 }
 
-.btn-carrello, #ca{
+.btn-carrello{
     border: 0;
     background: var(--yellow);
     color: #111;
@@ -701,13 +701,7 @@ a {
     transition: .25s;
 }
 
-.btn-carrello:hover, #ca:hover{
+.btn-carrello:hover{
     transform: translateY(-2px);
     background: var(--lime);
-}
-
-.btn-carrello.added {
-    background: #16a34a;
-    color: white;
-    transform: scale(1.05);
 }
