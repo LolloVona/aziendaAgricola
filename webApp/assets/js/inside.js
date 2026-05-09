@@ -213,7 +213,7 @@ function mostraRecapCheckout(totale, dataErogazione) {
                 </td>
                 <td>${p.quantita}</td>
                 <td>${Number(p.prezzo).toFixed(2)} €</td>
-                <td><button onclick="${rimuovi(p.nome)}" class="btn-rimuovi" >-</button></td>
+                <td><button onclick="rimuovi('${p.nome}')" class="btn-rimuovi">-</button></td>
             </tr>
         `;
     });
@@ -260,6 +260,14 @@ function rimuovi(nomeProdotto){
 
             carrello.splice(indice, 1); //elimina
         }
-        apriCheckout();
+        if(carrello.length == 0){
+            //chiude:
+            document.getElementById("checkout-overlay").classList.remove("show");
+        }else
+            apriCheckout();
+        aggiornaMiniCarrello();
     }
 }
+
+
+
