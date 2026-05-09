@@ -1,5 +1,5 @@
 /*
-*** FRUTTA IN CAMPO™ 2026© - This code is protected
+**** FRUTTA IN CAMPO™ 2026© - This code is protected
 
         •Questo script js serve per gestire tutte quelle funzioni che sono,
             INTERNE, ovvero dopo aver effettuato il log-in.
