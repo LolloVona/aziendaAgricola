@@ -26,10 +26,11 @@ async function accedi(){
     });
 
     //verifico che il server mi abbia risposto:
-    const message = await response.text();
+    const message = await response.json();
 
     switch(response.status){
         case 201:
+                sessionStorage.setItem("idUtente", message.idUtente);
                 window.location.href = "client.html";
                 break;
         case 400:

@@ -705,3 +705,9 @@ a {
     transform: translateY(-2px);
     background: var(--lime);
 }
+
+.btn-carrello.added {
+    background: #16a34a;
+    color: white;
+    transform: scale(1.05);
+}
