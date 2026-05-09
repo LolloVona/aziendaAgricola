@@ -8,6 +8,10 @@ import org.aziendaagricola.repository.ProssimoRaccoltoRepository;
 import org.aziendaagricola.repository.UtenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 @Service
 public class ProssimoRaccoltoService {
 
@@ -17,6 +21,7 @@ public class ProssimoRaccoltoService {
     private UtenteRepository utenteRepository;
     @Autowired
     private ProdottoRepository prodottoRepository;
+
     public boolean isAdmin(int idUtente) {
         boolean admin=utenteRepository.findById(idUtente)//restituisce un oggetto Optional di tipo Utente
                 .map(u -> u.getTipo().equalsIgnoreCase("A"))//chiamo l'istanza dell'oggetto restituito u,
@@ -60,5 +65,19 @@ public class ProssimoRaccoltoService {
             return true;
         }
         return false;
+    }
+
+    public void controllaData() {
+        LocalDate oggi=LocalDate.now();
+        ArrayList<ProssimoRaccolto> raccolti= (ArrayList<ProssimoRaccolto>) repository.findByDataLessThanEqual(oggi);
+        for(int i=0;i<raccolti.size();i++){
+            ProssimoRaccolto r = raccolti.get(i);
+            Prodotto p = r.getProdotto();
+            p.setDisponibilita(p.getDisponibilita()+raccolti.get(i).getDisponibilita());
+            p.setMagazzino(p.getMagazzino()+raccolti.get(i).getTotale());
+            prodottoRepository.save(p);
+            repository.deleteById(raccolti.get(i).getId_raccolto());
+        }
+
     }
 }
