@@ -9,6 +9,8 @@ import org.aziendaagricola.repository.ProdottoRepository;
 import org.aziendaagricola.repository.UtenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +22,8 @@ public class ProdottoService {
     private ProdottoRepository repository;
     @Autowired
     private UtenteRepository utenteRepository;
+    @Autowired
+    private AggiornamentoRepository aggiornamentoRepository;
 
     public boolean salvaProdotto(ProdottoCreateDTO dto) {
         if (repository.existsByNome(dto.getNome()))
@@ -101,5 +105,28 @@ public class ProdottoService {
         String nomeUtente=utenteRepository.getUsernameByIdUtente((idUtente)).getUsername();
         LogAggiornamento log=new LogAggiornamento(idProdotto,idUtente,nomeProdotto,nomeUtente,tipo,idAggiornamento);
         log.scrivi();
+    }
+
+    public int aggiornamento(String nome, Integer idUtente, String tipo) {
+        Aggiornamento a=new Aggiornamento();
+        a.setTipo(tipo);
+        a.setProdotto(repository.findByNome(nome).getIdProdotto());
+        a.setUtente(utenteRepository.getByIdUtente(idUtente));
+        a.setData(LocalDate.now());
+        aggiornamentoRepository.save(a);
+        return a.getId_aggiornamento();
+    }
+
+    public int aggiornamento(String nome, Integer idUtente, String tipo, String attributo, String nuovo) {
+        Aggiornamento a=new Aggiornamento();
+        a.setTipo(tipo);
+        a.setProdotto(repository.findByNome(nuovo).getIdProdotto());
+        a.setUtente(utenteRepository.getByIdUtente(idUtente));
+        a.setData(LocalDate.now());
+        a.setAttributo_modificato(attributo);
+        a.setVecchio_valore(nome);
+        a.setNuovo_valore(nuovo);
+        aggiornamentoRepository.save(a);
+        return a.getId_aggiornamento();
     }
 }

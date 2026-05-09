@@ -190,4 +190,20 @@ public class AcquistoService {
             return false;
         return true;
     }
+
+    public void controllaData() {
+        LocalDate oggi=LocalDate.now();
+        ArrayList<Acquisto> acquisti=(ArrayList<Acquisto>) repository.findByDataErogazioneLessThanEqual(oggi);
+        for(int i=0;i<acquisti.size();i++){
+            Acquisto a=acquisti.get(i);
+            ArrayList<Relativo> r=(ArrayList<Relativo>) relativoRepository.findByAcquisto(a);
+            for(int j=0;j<r.size();j++){
+                Prodotto p=r.get(j).getProdotto();
+                p.setMagazzino(p.getMagazzino()-r.get(j).getQuantita());
+                if(p.getMagazzino()<0)
+                    p.setMagazzino(0);
+                prodottoRepository.save(p);
+            }
+        }
+    }
 }
