@@ -1,5 +1,2 @@
-[2026-05-08T17:02:01.332583500] {id:0} Gino(id:1) ha creato mela(id:9) 
-[2026-05-09T14:32:11.121693400] {id:1} Gino(id:1) ha creato anguria(id:10) 
-[2026-05-09T14:35:23.094125600] {id:4} Gino(id:1) ha eliminato anguria(id:10) 
-[2026-05-09T14:51:00.280937700] {id:5} Gino(id:1) ha eliminato anguria(id:10) 
-[2026-05-09T14:52:48.096998900] {id:6} Gino(id:1) ha eliminato anguria(id:10) 
+
+[2026-05-09T19:36:10.687549300] {id:10} Gino(id:1) ha creato carota(id:12) 
