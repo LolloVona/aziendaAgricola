@@ -1,6 +1,7 @@
 package org.aziendaagricola.service;
 
 import org.aziendaagricola.DTO.RaccoltoCreateDTO;
+import org.aziendaagricola.LogRaccolto;
 import org.aziendaagricola.entita.Prodotto;
 import org.aziendaagricola.entita.ProssimoRaccolto;
 import org.aziendaagricola.repository.ProdottoRepository;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 public class ProssimoRaccoltoService {
@@ -34,25 +36,9 @@ public class ProssimoRaccoltoService {
         return repository.existsByProdottoNome(nome);
     }
 
-    public boolean aggiungiRaccolto(RaccoltoCreateDTO dto) {
-        /*/if(esisteProdotto(dto.getNome())){
-            int id=repository.getIdByNome(dto.getNome());
-            ProssimoRaccolto nuovo = new ProssimoRaccolto();
-            Prodotto p=new Prodotto();
-            p.setIdProdotto(id);
-            nuovo.setProdotto(p);
-            nuovo.setTotale(dto.getTotale());
-            nuovo.setDisponibilita(dto.getTotale());
-            nuovo.setData(dto.getData());
-            repository.save(nuovo);
-            return true;
-        }
-        return false;
+    public int aggiungiRaccolto(RaccoltoCreateDTO dto) {
 
-    }*/
-        // Chiedi al repository dei prodotti se il prodotto esiste
         if (prodottoRepository.existsByNome(dto.getNome())) {
-            // Recupera l'ID direttamente dal repository prodotti
             Prodotto p = prodottoRepository.findByNome(dto.getNome());
 
             ProssimoRaccolto nuovo = new ProssimoRaccolto();
@@ -61,10 +47,10 @@ public class ProssimoRaccoltoService {
             nuovo.setDisponibilita(dto.getTotale());
             nuovo.setData(dto.getData());
 
-            repository.save(nuovo);
-            return true;
+            ProssimoRaccolto salvato = repository.save(nuovo);
+            return salvato.getId_raccolto();
         }
-        return false;
+        return-1;
     }
 
     public void controllaData() {
@@ -79,5 +65,13 @@ public class ProssimoRaccoltoService {
             repository.deleteById(raccolti.get(i).getId_raccolto());
         }
 
+    }
+
+    public void scriviLog(int idRaccolto, Integer idUtente, String nomeProdotto) {
+        String username=utenteRepository.getUsernameByIdUtente(idUtente).getUsername();
+        String data=repository.findById_raccolto(idRaccolto).getData().toString();
+        int idProdotto=prodottoRepository.getIdByNome(nomeProdotto).getIdProdotto();
+        LogRaccolto log=new LogRaccolto(idProdotto,idRaccolto, idUtente,nomeProdotto,username,data);
+        log.scrivi();
     }
 }

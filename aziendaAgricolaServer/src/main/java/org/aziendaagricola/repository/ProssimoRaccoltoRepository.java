@@ -1,6 +1,5 @@
 package org.aziendaagricola.repository;
 
-import org.aziendaagricola.entita.Prodotto;
 import org.aziendaagricola.entita.ProssimoRaccolto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -8,7 +7,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -24,4 +22,6 @@ public interface ProssimoRaccoltoRepository extends JpaRepository<ProssimoRaccol
 
     List<ProssimoRaccolto> findByDataLessThanEqual(LocalDate data);
 
+    @Query("SELECT p FROM ProssimoRaccolto p WHERE p.id_raccolto = :id")
+    ProssimoRaccolto findById_raccolto(@Param("id") int id);
 }

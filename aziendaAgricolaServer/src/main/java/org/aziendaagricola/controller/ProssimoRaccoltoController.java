@@ -27,8 +27,9 @@ public class ProssimoRaccoltoController {
             Errore body=new Errore("Non sei admin");
             return ResponseEntity.status(403).body(body);
         }
-        if(proxRaccoltoService.aggiungiRaccolto(dto)){
-            //TODO file di log
+        int idRaccolto=proxRaccoltoService.aggiungiRaccolto(dto);
+        if(idRaccolto>=0){
+            proxRaccoltoService.scriviLog(idRaccolto,dto.getIdUtente(),dto.getNome());
             Errore body=new Errore("Aggiunto nuovo raccolto");
             return ResponseEntity.status(204).body(body);
         }
