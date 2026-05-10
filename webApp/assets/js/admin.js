@@ -1,3 +1,15 @@
+/*
+**** FRUTTA IN CAMPO™ 2026© - This code is protected
+
+        •Questo script js serve per gestire tutte quelle funzioni che sono
+            ad uso esclusivo dell'amministratore, ovvero dopo aver effettuato il log-in.
+
+            In questo caso, la gestione dei prodotti, con le funzioni di modifica, eliminazione e aggiunta.
+
+*/
+
+
+
 async function prodotti(){
     //creare la GET per chiedere tutti i prodotti:
     const response = await fetch("http://localhost:8080/api/prodotto",
