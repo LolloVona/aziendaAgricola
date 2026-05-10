@@ -31,7 +31,7 @@ async function accedi(){
     switch(response.status){
         case 201:
                 sessionStorage.setItem("idUtente", message.idUtente);
-                window.location.href = "client.html";
+                reindirizzamento();
                 break;
         case 400:
                 document.getElementById('err').style.display = "block";
@@ -81,5 +81,22 @@ async function registrati(){
         default:
                 alert('default case');
                 break;
+    }
+}
+
+async function reindirizzamento(){
+    idUtente = sessionStorage.getItem("idUtente");
+    const response = await fetch(`http://localhost:8080/api/utente/tipo?idUtente=${idUtente}`);
+
+    const dati = response.json();
+    if(response.status == 200){
+        switch(dati.tipo){
+            case "A":
+                        window.location.href = "admin.html";
+                        break;
+            case "C":
+                        window.location.href = "client.html";
+                        break;
+        }
     }
 }
