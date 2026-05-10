@@ -1,0 +1,175 @@
+.area-admin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 34px;
+}
+
+.bottone-modifica,
+.bottone-elimina{
+    min-width: 210px;
+    height: 54px;
+
+    border-radius: 8px;
+    background: transparent;
+
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: .22s ease;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    box-shadow: none;
+}
+
+.bottone-modifica{
+    border: 1.5px solid var(--green);
+    color: var(--green);
+}
+
+.bottone-elimina{
+    border: 1.5px solid #c81e1e;
+    color: #c81e1e;
+}
+
+.bottone-modifica i,
+.bottone-elimina i{
+    font-size: 19px;
+}
+
+.bottone-modifica:hover{
+    background: var(--green);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.bottone-elimina:hover{
+    background: #c81e1e;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.bottone-modifica:active,
+.bottone-elimina:active{
+    transform: scale(.97);
+}
+
+@media(max-width: 650px){
+    .area-admin{
+        flex-direction: column;
+    }
+
+    .bottone-modifica,
+    .bottone-elimina{
+        width: 100%;
+        max-width: 260px;
+    }
+}
+
+
+/* =========================
+   CARD AGGIUNGI PRODOTTO
+========================= */
+
+.card-aggiungi{
+    background: #fff;
+
+    border: 2px dashed #dbe7d5;
+    border-radius: 14px;
+
+    min-height: 520px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 22px;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.04);
+}
+
+.card-aggiungi:hover{
+    transform: translateY(-4px);
+
+    border-color: var(--lime);
+
+    background: #fbfef8;
+
+    box-shadow: 0 18px 40px rgba(0,0,0,.08);
+}
+
+/* CERCHIO + */
+
+.plus-aggiungi{
+    width: 95px;
+    height: 95px;
+
+    border-radius: 50%;
+
+    border: 1.5px solid #dfe7dc;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    transition: .25s;
+}
+
+.plus-aggiungi::before,
+.plus-aggiungi::after{
+    content: "";
+
+    position: absolute;
+
+    background: var(--green);
+
+    border-radius: 10px;
+}
+
+/* linea verticale */
+.plus-aggiungi::before{
+    width: 4px;
+    height: 34px;
+}
+
+/* linea orizzontale */
+.plus-aggiungi::after{
+    width: 34px;
+    height: 4px;
+}
+
+.card-aggiungi:hover .plus-aggiungi{
+    border-color: var(--lime);
+
+    transform: scale(1.06);
+}
+
+/* TESTO */
+
+.card-aggiungi h3{
+    margin: 0;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    color: var(--green);
+
+    letter-spacing: .3px;
+}

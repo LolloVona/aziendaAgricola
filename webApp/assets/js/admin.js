@@ -1,0 +1,92 @@
+async function prodotti(){
+    //creare la GET per chiedere tutti i prodotti:
+    const response = await fetch("http://localhost:8080/api/prodotto",
+        {
+            method: "GET"
+        }
+    );
+
+    const data = await response.json();
+    mostraProdotti(data.prodotti);
+}
+
+function mostraProdotti(a){
+
+    const div = document.getElementById('container-prodotti');
+
+    a.forEach(prodotto => {
+        //creo la carta del prodotto
+        const card = document.createElement('div');
+
+        //aggiungo la classe per lo stile
+        card.classList.add('card-prodotto');
+
+        //Creo img:
+        const img = document.createElement('img');
+        img.src = "../../assets/img/"+prodotto.nome+".jpg";
+        img.alt = prodotto.nome;
+
+        //Creo titolo:
+        const titolo = document.createElement('h3');
+        titolo.textContent = prodotto.nome;
+
+        //Creo il prezzo
+        const prezzo = document.createElement("p");
+        prezzo.textContent = prodotto.prezzo + "€";
+
+        //Creo il bottone modifica
+        const bottoneModifica = document.createElement("button");
+        bottoneModifica.innerHTML = '<i class="fa-solid fa-pen"></i> Modifica';
+        bottoneModifica.classList.add("bottone-modifica");
+        
+        //gestisco il click:
+        bottoneModifica.addEventListener("click", () =>
+        {
+            apriModifica(); //TODO
+        });
+
+        //Creo bottone elimina:
+        const bottoneElimina = document.createElement("button");
+        bottoneElimina.innerHTML = '<i class="fa-solid fa-trash"></i> Elimina';
+        bottoneElimina.classList.add("bottone-elimina");
+
+        //gestisco il click:
+        bottoneElimina.addEventListener("click", () =>
+        {
+            apriElimina(); //TODO
+        });
+
+
+        const areaAdmin = document.createElement("div");
+        areaAdmin.classList.add("area-admin");
+
+        areaAdmin.appendChild(bottoneModifica);
+        areaAdmin.appendChild(bottoneElimina);        
+ 
+/////////////////////////////////////////////////////////////////////////////
+ 
+
+//Aggiungo al div CARD
+        card.appendChild(img);
+        card.appendChild(titolo);
+        card.appendChild(prezzo);
+        card.appendChild(areaAdmin);
+        //Aggiungo al body
+        div.appendChild(card);
+
+    });
+
+      //aggiungo card finale aggiungi prodotto:
+    const aggiungiProdotto = document.createElement("div");
+    const plus = document.createElement("div");
+    const testo = document.createElement("h3");
+    testo.textContent = "Aggiungi Prodotto";
+
+    aggiungiProdotto.appendChild(testo);
+
+    aggiungiProdotto.classList.add("card-aggiungi");
+    plus.classList.add("plus-aggiungi");
+
+    aggiungiProdotto.appendChild(plus);
+    div.appendChild(aggiungiProdotto);
+}  
