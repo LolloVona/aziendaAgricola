@@ -86,9 +86,9 @@ async function registrati(){
 
 async function reindirizzamento(){
     idUtente = sessionStorage.getItem("idUtente");
-    const response = await fetch(`http://localhost:8080/api/utente/tipo?idUtente=${idUtente}`);
+    const response = await fetch(`http://localhost:8080/api/utente/tipo/${idUtente}`);
 
-    const dati = response.json();
+    const dati = await response.json();
     if(response.status == 200){
         switch(dati.tipo){
             case "A":
