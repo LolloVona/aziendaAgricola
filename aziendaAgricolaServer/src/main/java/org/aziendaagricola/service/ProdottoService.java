@@ -106,6 +106,11 @@ public class ProdottoService {
         LogAggiornamento log=new LogAggiornamento(idProdotto,idUtente,nomeProdotto,nomeUtente,tipo,idAggiornamento);
         log.scrivi();
     }
+    public void scriviLog(String nomeProdotto, int idUtente, String tipo,int idAggiornamento,String nuovoValore,String attributo,int idProdotto) {
+        String nomeUtente=utenteRepository.getUsernameByIdUtente((idUtente)).getUsername();
+        LogAggiornamento log=new LogAggiornamento(attributo, idProdotto, idUtente,nomeProdotto, nomeUtente, nuovoValore, tipo, nomeProdotto, idAggiornamento);
+        log.scrivi();
+    }
 
     public int aggiornamento(String nome, Integer idUtente, String tipo) {
         Aggiornamento a=new Aggiornamento();
@@ -128,5 +133,32 @@ public class ProdottoService {
         a.setNuovo_valore(nuovo);
         aggiornamentoRepository.save(a);
         return a.getId_aggiornamento();
+    }
+    public int aggiornamento(String nome, Integer idUtente, String tipo, String attributo, String nuovo, String vecchio) {
+        Aggiornamento a=new Aggiornamento();
+        a.setTipo(tipo);
+        a.setProdotto(repository.findByNome(nome).getIdProdotto());
+        a.setUtente(utenteRepository.getByIdUtente(idUtente));
+        a.setData(LocalDate.now());
+        a.setAttributo_modificato(attributo);
+        a.setVecchio_valore(vecchio);
+        a.setNuovo_valore(nuovo);
+        aggiornamentoRepository.save(a);
+        return a.getId_aggiornamento();
+    }
+
+    public float vecchioPrezzo(String nome) {
+        return repository.findByNome(nome).getPrezzo();
+    }
+
+    public void scriviLog(String nome, Integer idUtente, String tipo, int idAggiornamento, String attributo, String nuovo, String vecchio) {
+        int idProdotto=repository.findByNome(nome).getIdProdotto();
+        String nomeUtente=utenteRepository.getUsernameByIdUtente((idUtente)).getUsername();
+        LogAggiornamento log=new LogAggiornamento(attributo,idProdotto,idUtente,nome,nomeUtente,nuovo,tipo,vecchio,idAggiornamento);
+        log.scrivi();
+    }
+
+    public int getIdProdottoByNome(String nome) {
+        return repository.findByNome(nome).getIdProdotto();
     }
 }

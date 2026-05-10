@@ -2,7 +2,6 @@ package org.aziendaagricola.DTO;
 
 public class ProdottoUpdatePrezzoDTO {
     private Integer idUtente;
-    private float prezzo;
     private String nome;
 
     public Integer getIdUtente() {
@@ -21,16 +20,9 @@ public class ProdottoUpdatePrezzoDTO {
         this.nome = nome;
     }
 
-    public float getPrezzo() {
-        return prezzo;
-    }
-
-    public void setPrezzo(float prezzo) {
-        this.prezzo = prezzo;
-    }
 
     public boolean isValido() {
-        if(idUtente==null||nome==null||nome.isBlank()||prezzo==0)
+        if(idUtente==null||nome==null||nome.isBlank())
             return false;
         return true;
     }

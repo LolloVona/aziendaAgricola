@@ -1,6 +1,7 @@
 package org.aziendaagricola.controller;
 import jakarta.transaction.Transactional;
 import org.aziendaagricola.DTO.*;
+import org.aziendaagricola.entita.Prodotto;
 import org.aziendaagricola.record.Errore;
 import org.aziendaagricola.record.Prodotto.GetProdottiRecord;
 import org.aziendaagricola.record.Prodotto.GetProdottoRecord;
@@ -18,6 +19,8 @@ public class ProdottoController {
     @Autowired
     private ProdottoService prodottoService;
 
+
+
     @PostMapping()
     public ResponseEntity<Object> aggiungi(@RequestBody ProdottoCreateDTO dto) {
         if (dto.getIdUtente() == null) {
@@ -31,7 +34,6 @@ public class ProdottoController {
         boolean successo = prodottoService.salvaProdotto(dto);
 
         if (successo) {
-            //TODO: file di log e aggiunta a tabella aggiornamento (gli devo passare l'idAggiornamento)
             int idAggiornamento= prodottoService.aggiornamento(dto.getNome(), dto.getIdUtente(), "C");
             prodottoService.scriviLog(dto.getNome(),dto.getIdUtente(),"C",idAggiornamento);
 
@@ -62,7 +64,6 @@ public class ProdottoController {
         int idAggiornamento= prodottoService.aggiornamento(nome, dto.getIdUtente(), "D");
         prodottoService.scriviLog(nome,dto.getIdUtente(),"D",idAggiornamento);
         if(prodottoService.eliminaProdotto(nome)){
-            //TODO:file di log e aggiunta a tabella aggiornamento
             Errore body=new Errore("Prodotto eliminato");
             return ResponseEntity.status(204).body(body);
         }
@@ -86,10 +87,10 @@ public class ProdottoController {
             Errore body=new Errore("Non sei admin");
             return ResponseEntity.status(403).body(body);
         }
-
+        int idProdotto = prodottoService.getIdProdottoByNome(dto.getNome());
         if(prodottoService.modificaNomeProdotto(nuovoNome, dto.getNome())){
             int idAggiornamento= prodottoService.aggiornamento(dto.getNome(), dto.getIdUtente(), "U","nome",nuovoNome);
-            //prodottoService.scriviLog(dto.getNome(),dto.getIdUtente(),"U",idAggiornamento);
+            prodottoService.scriviLog(dto.getNome(),dto.getIdUtente(),"U",idAggiornamento,nuovoNome,"nome",idProdotto);
             Errore body=new Errore("Prodotto modificato");
             return ResponseEntity.status(204).body(body);
         }
@@ -105,21 +106,23 @@ public class ProdottoController {
             Errore body=new Errore("Id utente mancante");
             return ResponseEntity.status(400).body(body);
         }
-        if (!dto.isValido()){//controllo se dto è valido?
-            Errore body=new Errore("Dati non validi");
-            return ResponseEntity.status(400).body(body);//errore dati nella body
+        if (!dto.isValido()){
+            Errore body=new Errore("Dati non validi1");
+            return ResponseEntity.status(400).body(body);
         }
         if(!prodottoService.isAdmin(dto.getIdUtente())){
             Errore body=new Errore("Non sei admin");
             return ResponseEntity.status(403).body(body);
         }
+        float vecchioPrezzo=prodottoService.vecchioPrezzo(dto.getNome());
         if(prodottoService.modificaPrezzoProdotto(nuovoPrezzo, dto.getNome())){
-            //TODO:file di log e aggiunta a tabella aggiornamento
+            int idAggiornamento= prodottoService.aggiornamento(dto.getNome(), dto.getIdUtente(), "U","prezzo",""+nuovoPrezzo,""+vecchioPrezzo);
+            prodottoService.scriviLog(dto.getNome(), dto.getIdUtente(), "U",idAggiornamento, "prezzo",""+nuovoPrezzo,""+vecchioPrezzo);
             Errore body=new Errore("Prodotto modificato");
             return ResponseEntity.status(204).body(body);
         }
         else{
-            Errore body=new Errore("Dati non validi");
+            Errore body=new Errore("Dati non validi2");
             return ResponseEntity.status(400).body(body);
         }
     }
