@@ -3,3 +3,5 @@
 [2026-05-10T11:13:53.616368400] {id:11} admin(id:5) ha creato carota(id:13) 
 [2026-05-10T11:24:00.149000300] {id:13} admin(id:5) ha modificato carota(id:13) (Attributo modificato prezzo vecchio valore:0.75 nuovo valore:2.0)
 [2026-05-10T11:52:41.749035500] {id:19} admin(id:5) ha modificato pera(id:13) (Attributo modificato nome vecchio valore:pera nuovo valore:mela)
+[2026-05-12T08:54:09.357938] {id:1} admin(id:9) ha creato carota(id:8) 
+[2026-05-12T08:55:36.933511] {id:2} admin(id:9) ha creato mela(id:9) 

@@ -8,6 +8,13 @@
 
 */
 
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("close-add-product").addEventListener("click", () =>{
+        document.getElementById("add-product-overlay").classList.remove("show");
+    });
+});
+
+
 
 
 async function prodotti(){
@@ -99,6 +106,59 @@ function mostraProdotti(a){
     aggiungiProdotto.classList.add("card-aggiungi");
     plus.classList.add("plus-aggiungi");
 
+
+            aggiungiProdotto.addEventListener("click", () => {
+            addProdotto();
+            });
+
+
     aggiungiProdotto.appendChild(plus);
     div.appendChild(aggiungiProdotto);
 }  
+
+
+function addProdotto(){
+    document.getElementById("add-product-overlay").classList.add("show");
+}
+
+async function salvaProdotto(){
+
+const id = sessionStorage.getItem("idUtente");
+
+    const response = await fetch("http://localhost:8080/api/prodotto", 
+       {
+        method:"POST",
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idUtente : id,
+            nome:  document.getElementById('nome-prodotto').value,
+            prezzo: document.getElementById('prezzo-prodotto').value,
+            magazzino: document.getElementById('quantita-prodotto').value
+        })
+       }
+    );
+
+    const message = response.json();
+
+    switch(response.status){
+        case 201:
+                document.getElementById("yes").style.display = "block";
+                document.getElementById('err').style.display = "none";
+                break;
+        case 400:
+                document.getElementById('err').style.display = "block";
+                 document.getElementById('err').innerText = "codErrore"+response.status;
+                document.getElementById("yes").style.display = "none";
+                break;
+        case 403:
+                document.getElementById('err').style.display = "block";
+                 document.getElementById('err').innerText = "codErrore"+response.status;
+                document.getElementById("yes").style.display = "none";
+                break;
+    }
+}
+
+
+

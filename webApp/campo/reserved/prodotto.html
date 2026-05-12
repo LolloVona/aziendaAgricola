@@ -62,6 +62,40 @@
        
     </div>
 
+    <!-- PARTE DELL'ADD-->
+    <div id="add-product-overlay" class="add-product-overlay">
+    <div class="add-product-modal">
+
+        <button id="close-add-product" class="close-add-product">&times;</button>
+
+        <h2><i class="fa-solid fa-plus"></i> Aggiungi prodotto</h2>
+
+        <div class="add-product-form">
+          <p id="yes" style="color:#2e7d32; display: none;">Prodotto Aggiunto✅</p>
+          <p id="err" style="color:red; display: none;"></p>
+            <label>
+                Nome:
+                <input type="text" id="nome-prodotto" placeholder="Es. Mela">
+            </label>
+
+            <label>
+                Prezzo:
+                <input type="number" id="prezzo-prodotto" placeholder="€" step="0.01">
+            </label>
+
+            <label>
+                Quantità:
+                <input type="number" id="quantita-prodotto" placeholder="Es. 50">
+            </label>
+
+            <button class="btn-salva-prodotto" onclick="salvaProdotto()">
+                Salva prodotto
+            </button>
+
+        </div>
+    </div>
+</div>
+
 
    
 
