@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class AcquistoCreateDTO {
     private Integer idUtente;
-    private ArrayList<Informazioni> prodotti;
+    private ArrayList<InformazioniDTO> prodotti;
 
     public Integer getIdUtente() {
         return idUtente;
@@ -14,11 +14,11 @@ public class AcquistoCreateDTO {
         this.idUtente = idUtente;
     }
 
-    public ArrayList<Informazioni> getProdotti() {
+    public ArrayList<InformazioniDTO> getProdotti() {
         return prodotti;
     }
 
-    public void setProdotti(ArrayList<Informazioni> prodotti) {
+    public void setProdotti(ArrayList<InformazioniDTO> prodotti) {
         this.prodotti = prodotti;
     }
 

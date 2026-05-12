@@ -1,6 +1,6 @@
 package org.aziendaagricola.DTO;
 
-public class Informazioni {
+public class InformazioniDTO {
     private String nome;
     private Integer quantita;
 
