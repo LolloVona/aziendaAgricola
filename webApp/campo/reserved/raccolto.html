@@ -49,7 +49,39 @@
   </header>
 
   <!--    *********************************INIZIO PAGE *******************************-->
+  <div class="f">
+    <h1 style="color:#2e7d32"><i class="fa-solid fa-leaf">GESTIONE RACCOLTO</i></h1>
+  </div> 
+    <div class="hr-fancy" style="margin-top: 0;">
+            <span><i class="fa-solid fa-leaf"></i></span>
+    </div>
 
+    <div class="card-aggiungi-raccolto">
+    <h3>Aggiungi raccolto</h3>
+
+    <label for="menu">Seleziona il prodotto del raccolto:</label>
+     <select name="sel" id="menu">
+
+     </select>
+
+    <label for="kg-raccolto">Totale raccolto in kg</label>
+    <input 
+        type="number" 
+        id="kg-raccolto" 
+        placeholder="Es. 25"
+        min="0"
+        step="0.1"
+    >
+
+    <label for="data-raccolto">Data raccolta</label>
+    <input  type="date" id="data-raccolto" >
+
+     <p style="display: none; color:#2e7d32" id="yes">raccolto aggiunto!</p>
+
+    <button class="btn-aggiungi-raccolto" onclick="aggiungiRaccolto();">
+        Aggiungi raccolto
+    </button>
+</div>
 
    
 
@@ -69,5 +101,7 @@
     <div class="copyright">Frutta in Campo™ 2026© - Tutti i diritti sono riservati</div>
   </footer>
 
+
+  <script src="../../assets/js/raccolto.js"></script>
 </body>
 </html>
