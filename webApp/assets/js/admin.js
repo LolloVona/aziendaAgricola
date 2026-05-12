@@ -160,5 +160,25 @@ const id = sessionStorage.getItem("idUtente");
     }
 }
 
+async function uploadImg(){
+
+    const input = document.getElementById("img-prodotto");
+    const file = input.files[0];
+
+    const formData = new FormData();
+    formData.append("immagine", file);
+    formData.append("nomeFile", document.getElementById('nome-prodotto').value);
+
+    const response = await fetch("http://127.0.0.1/Php/aziendaAgricola/webApp/assets/php/upload.php", {
+        method: "POST",
+        body: formData
+    });
+
+    const text = await response.text();
+    console.log(response.status);
+    console.log(text);
+}
+
+
 
 
