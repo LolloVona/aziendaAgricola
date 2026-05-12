@@ -1,7 +1,7 @@
 package org.aziendaagricola.controller;
 
 import org.aziendaagricola.DTO.RaccoltoCreateDTO;
-import org.aziendaagricola.record.Errore;
+import org.aziendaagricola.record.ErroreResponse;
 import org.aziendaagricola.service.ProssimoRaccoltoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,25 +16,25 @@ public class ProssimoRaccoltoController {
     @PostMapping()
     public ResponseEntity<Object> aggiungiRaccolto(@RequestBody RaccoltoCreateDTO dto){
         if (dto.getIdUtente() == null) {
-            Errore body=new Errore("Id utente mancante");
+            ErroreResponse body=new ErroreResponse("Id utente mancante");
             return ResponseEntity.status(400).body(body);
         }
         if(!dto.isValido()){
-            Errore body=new Errore("Dati non validi");
+            ErroreResponse body=new ErroreResponse("Dati non validi");
             return ResponseEntity.status(400).body(body);
         }
         if(!proxRaccoltoService.isAdmin((dto.getIdUtente()))){
-            Errore body=new Errore("Non sei admin");
+            ErroreResponse body=new ErroreResponse("Non sei admin");
             return ResponseEntity.status(403).body(body);
         }
         int idRaccolto=proxRaccoltoService.aggiungiRaccolto(dto);
         if(idRaccolto>=0){
             proxRaccoltoService.scriviLog(idRaccolto,dto.getIdUtente(),dto.getNome());
-            Errore body=new Errore("Aggiunto nuovo raccolto");
+            ErroreResponse body=new ErroreResponse("Aggiunto nuovo raccolto");
             return ResponseEntity.status(204).body(body);
         }
         else{
-            Errore body=new Errore("Dati non validi");
+            ErroreResponse body=new ErroreResponse("Dati non validi");
             return ResponseEntity.status(400).body(body);
         }
     }

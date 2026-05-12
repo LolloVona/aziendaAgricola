@@ -4,6 +4,6 @@ import org.aziendaagricola.DTO.ProdottoReadDTO;
 
 import java.util.ArrayList;
 
-public record GetProdottiRecord(ArrayList<ProdottoReadDTO> prodotti, String message) {
+public record GetProdottiResponse(ArrayList<ProdottoReadDTO> prodotti, String message) {
 
 }

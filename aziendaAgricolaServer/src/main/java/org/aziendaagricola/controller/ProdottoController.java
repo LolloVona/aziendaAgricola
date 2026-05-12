@@ -1,10 +1,9 @@
 package org.aziendaagricola.controller;
 import jakarta.transaction.Transactional;
 import org.aziendaagricola.DTO.*;
-import org.aziendaagricola.entita.Prodotto;
-import org.aziendaagricola.record.Errore;
-import org.aziendaagricola.record.Prodotto.GetProdottiRecord;
-import org.aziendaagricola.record.Prodotto.GetProdottoRecord;
+import org.aziendaagricola.record.ErroreResponse;
+import org.aziendaagricola.record.Prodotto.GetProdottiResponse;
+import org.aziendaagricola.record.Prodotto.GetProdottoResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,11 +23,11 @@ public class ProdottoController {
     @PostMapping()
     public ResponseEntity<Object> aggiungi(@RequestBody ProdottoCreateDTO dto) {
         if (dto.getIdUtente() == null) {
-            Errore body=new Errore("Id utente mancante");
+            ErroreResponse body=new ErroreResponse("Id utente mancante");
             return ResponseEntity.status(400).body(body);
         }
         if (!dto.isValido()){
-            Errore body=new Errore("Dati non validi");
+            ErroreResponse body=new ErroreResponse("Dati non validi");
             return ResponseEntity.status(400).body(body);//errore dati nella body
         }
         boolean successo = prodottoService.salvaProdotto(dto);
@@ -37,11 +36,11 @@ public class ProdottoController {
             int idAggiornamento= prodottoService.aggiornamento(dto.getNome(), dto.getIdUtente(), "C");
             prodottoService.scriviLog(dto.getNome(),dto.getIdUtente(),"C",idAggiornamento);
 
-            Errore body=new Errore("Prodotto creato");
+            ErroreResponse body=new ErroreResponse("Prodotto creato");
 
             return ResponseEntity.status(201).body(body);
         } else {
-            Errore body=new Errore("Non sei admin");
+            ErroreResponse body=new ErroreResponse("Non sei admin");
             return ResponseEntity.status(403).body(body);
         }
     }
@@ -50,25 +49,25 @@ public class ProdottoController {
     @Transactional
     public ResponseEntity<Object> elimina(@PathVariable("nomeProdotto") String nome, @RequestBody ProdottoDeleteDTO dto){
         if(dto.getIdUtente()==null){
-            Errore body=new Errore("Id utente mancante");
+            ErroreResponse body=new ErroreResponse("Id utente mancante");
             return ResponseEntity.status(400).body(body);
         }
         if (!dto.isValido()){//controllo se dto è valido?
-            Errore body=new Errore("Dati non validi");
+            ErroreResponse body=new ErroreResponse("Dati non validi");
             return ResponseEntity.status(400).body(body);//errore dati nella body
         }
         if(!prodottoService.isAdmin(dto.getIdUtente())){
-            Errore body=new Errore("Non sei admin");
+            ErroreResponse body=new ErroreResponse("Non sei admin");
             return ResponseEntity.status(403).body(body);
         }
         int idAggiornamento= prodottoService.aggiornamento(nome, dto.getIdUtente(), "D");
         prodottoService.scriviLog(nome,dto.getIdUtente(),"D",idAggiornamento);
         if(prodottoService.eliminaProdotto(nome)){
-            Errore body=new Errore("Prodotto eliminato");
+            ErroreResponse body=new ErroreResponse("Prodotto eliminato");
             return ResponseEntity.status(204).body(body);
         }
         else{
-            Errore body=new Errore("Dati non validi");
+            ErroreResponse body=new ErroreResponse("Dati non validi");
             return ResponseEntity.status(400).body(body);
         }
     }
@@ -76,26 +75,26 @@ public class ProdottoController {
     @PutMapping("/nome/{nuovoNome}")
     public ResponseEntity<Object> cambiaNome(@RequestBody ProdottoUpdateNomeDTO dto, @PathVariable("nuovoNome") String nuovoNome) {
         if(dto.getIdUtente()==null){
-            Errore body=new Errore("Id utente mancante");
+            ErroreResponse body=new ErroreResponse("Id utente mancante");
             return ResponseEntity.status(400).body(body);
         }
         if (!dto.isValido()){//controllo se dto è valido?
-            Errore body=new Errore("Dati non validi1");
+            ErroreResponse body=new ErroreResponse("Dati non validi1");
             return ResponseEntity.status(400).body(body);//errore dati nella body
         }
         if(!prodottoService.isAdmin(dto.getIdUtente())){
-            Errore body=new Errore("Non sei admin");
+            ErroreResponse body=new ErroreResponse("Non sei admin");
             return ResponseEntity.status(403).body(body);
         }
         int idProdotto = prodottoService.getIdProdottoByNome(dto.getNome());
         if(prodottoService.modificaNomeProdotto(nuovoNome, dto.getNome())){
             int idAggiornamento= prodottoService.aggiornamento(dto.getNome(), dto.getIdUtente(), "U","nome",nuovoNome);
             prodottoService.scriviLog(dto.getNome(),dto.getIdUtente(),"U",idAggiornamento,nuovoNome,"nome",idProdotto);
-            Errore body=new Errore("Prodotto modificato");
+            ErroreResponse body=new ErroreResponse("Prodotto modificato");
             return ResponseEntity.status(204).body(body);
         }
         else{
-            Errore body=new Errore("Dati non validi2");
+            ErroreResponse body=new ErroreResponse("Dati non validi2");
             return ResponseEntity.status(400).body(body);
         }
     }
@@ -103,26 +102,26 @@ public class ProdottoController {
     @PutMapping("/prezzo/{prezzo}")
     public ResponseEntity<Object> cambiaPrezzo(@RequestBody ProdottoUpdatePrezzoDTO dto, @PathVariable("prezzo") float nuovoPrezzo) {
         if(dto.getIdUtente()==null){
-            Errore body=new Errore("Id utente mancante");
+            ErroreResponse body=new ErroreResponse("Id utente mancante");
             return ResponseEntity.status(400).body(body);
         }
         if (!dto.isValido()){
-            Errore body=new Errore("Dati non validi1");
+            ErroreResponse body=new ErroreResponse("Dati non validi1");
             return ResponseEntity.status(400).body(body);
         }
         if(!prodottoService.isAdmin(dto.getIdUtente())){
-            Errore body=new Errore("Non sei admin");
+            ErroreResponse body=new ErroreResponse("Non sei admin");
             return ResponseEntity.status(403).body(body);
         }
         float vecchioPrezzo=prodottoService.vecchioPrezzo(dto.getNome());
         if(prodottoService.modificaPrezzoProdotto(nuovoPrezzo, dto.getNome())){
             int idAggiornamento= prodottoService.aggiornamento(dto.getNome(), dto.getIdUtente(), "U","prezzo",""+nuovoPrezzo,""+vecchioPrezzo);
             prodottoService.scriviLog(dto.getNome(), dto.getIdUtente(), "U",idAggiornamento, "prezzo",""+nuovoPrezzo,""+vecchioPrezzo);
-            Errore body=new Errore("Prodotto modificato");
+            ErroreResponse body=new ErroreResponse("Prodotto modificato");
             return ResponseEntity.status(204).body(body);
         }
         else{
-            Errore body=new Errore("Dati non validi2");
+            ErroreResponse body=new ErroreResponse("Dati non validi2");
             return ResponseEntity.status(400).body(body);
         }
     }
@@ -130,7 +129,7 @@ public class ProdottoController {
     @GetMapping()
     public ResponseEntity<Object> getProdotti() {
         ArrayList <ProdottoReadDTO> prodotto=prodottoService.getProdotti();
-        GetProdottiRecord body=new GetProdottiRecord(prodotto,"Prodotto trovato");
+        GetProdottiResponse body=new GetProdottiResponse(prodotto,"Prodotto trovato");
         return ResponseEntity.status(200).body(body);
     }
 
@@ -138,11 +137,11 @@ public class ProdottoController {
     public ResponseEntity<Object> getProdottoByNome(@PathVariable("nomeProdotto") String nome) {
         if(prodottoService.esisteProdotto(nome)){
             ProdottoReadDTO prodotto= prodottoService.getProdottoByNome(nome);
-            GetProdottoRecord body=new GetProdottoRecord(prodotto);
+            GetProdottoResponse body=new GetProdottoResponse(prodotto);
             return ResponseEntity.status(200).body(body);
         }
         else{
-            Errore body=new Errore("Dati non validi");
+            ErroreResponse body=new ErroreResponse("Dati non validi");
             return ResponseEntity.status(400).body(body);
         }
     }

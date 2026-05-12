@@ -4,5 +4,5 @@ import org.aziendaagricola.DTO.AcquistoReadDTO;
 
 import java.util.ArrayList;
 
-public record OrdineDaErogareRecord(ArrayList<AcquistoReadDTO> ordini) {
+public record OrdineDaErogareResponse(ArrayList<AcquistoReadDTO> ordini) {
 }
