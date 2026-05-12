@@ -5,6 +5,7 @@ import org.aziendaagricola.DTO.*;
 import org.aziendaagricola.DTO.InformazioniDTO;
 
 import org.aziendaagricola.entita.*;
+import org.aziendaagricola.log.LogAcquisto;
 import org.aziendaagricola.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -104,7 +105,7 @@ public class AcquistoService {
     }
 
     @Transactional
-    public boolean confermaAcquisto(AcquistoCreateDTO dto){
+    public int confermaAcquisto(AcquistoCreateDTO dto){
         LocalDate dataProntoOrdine = LocalDate.now();
         float totalePrezzoOrdine=0;
         for (int i = 0; i < dto.getProdotti().size(); i++) {
@@ -149,7 +150,7 @@ public class AcquistoService {
         u.setIdUtente(dto.getIdUtente());
         acquisto.setUtente(u);
         acquisto.setDataErogazione(dataProntoOrdine);
-        repository.save(acquisto);
+        Acquisto a=repository.save(acquisto);
         ArrayList<InformazioniDTO> prodotti=dto.getProdotti();
         for(int i=0;i<prodotti.size();i++){
             Relativo relativo = new Relativo();
@@ -166,7 +167,7 @@ public class AcquistoService {
             relativoRepository.save(relativo);
         }
 
-        return true;
+        return a.getNumeroFattura();
     }
 
     public ArrayList<AcquistoReadDTO> getOrdiniDaErogare() {
@@ -207,6 +208,9 @@ public class AcquistoService {
         }
     }
 
-    public void scriviLog() {
+    public void scriviLog(int numeroFattura, int idUtente) {
+        String username=utenteRepository.getUsernameByIdUtente(idUtente).getUsername();
+        LogAcquisto log=new LogAcquisto(numeroFattura,idUtente,username);
+        log.scrivi();
     }
 }

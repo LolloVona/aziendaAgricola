@@ -12,7 +12,7 @@ public class LogUtente {
         this.tipo = tipo;
         this.username = username;
     }
-    public void scriviLog(){
+    public void scrivi(){
         String ora= "["+ LocalDateTime.now()+"] ";
         String msg=ora+username+" (id:"+id+")";
         switch(tipo){

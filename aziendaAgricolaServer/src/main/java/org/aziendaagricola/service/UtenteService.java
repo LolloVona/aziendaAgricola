@@ -55,7 +55,7 @@ public class UtenteService {
     public void scriviLog(int id, String tipo) {
         Utente u=utenteRepository.getByIdUtente(id);
         LogUtente log=new LogUtente(id,tipo,u.getUsername());
-        log.scriviLog();
+        log.scrivi();
 
 
     }
