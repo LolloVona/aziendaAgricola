@@ -1,4 +1,4 @@
-package org.aziendaagricola;
+package org.aziendaagricola.log;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -20,7 +20,7 @@ public class LogRaccolto {
         String ora="["+ LocalDateTime.now()+"] ";
         String msg=ora+"{idRaccolto:"+idRaccolto+"} "+username+" (id:"+idUtente+") ha aggiunto un nuovo raccolto di "+nomeProdotto+"(id:"+idProdotto+") Data prevista: "+data;
         try {
-            FileWriter f = new FileWriter("raccolto.txt", true);
+            FileWriter f = new FileWriter("log/raccolto.txt", true);
             PrintWriter fout = new PrintWriter(f);
             fout.println(msg);
             fout.close();

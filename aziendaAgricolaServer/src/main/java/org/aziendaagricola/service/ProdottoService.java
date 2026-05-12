@@ -1,7 +1,7 @@
 package org.aziendaagricola.service;
 import org.aziendaagricola.DTO.ProdottoCreateDTO;
 import org.aziendaagricola.DTO.ProdottoReadDTO;
-import org.aziendaagricola.LogAggiornamento;
+import org.aziendaagricola.log.LogAggiornamento;
 import org.aziendaagricola.entita.Aggiornamento;
 import org.aziendaagricola.entita.Prodotto;
 import org.aziendaagricola.repository.AggiornamentoRepository;

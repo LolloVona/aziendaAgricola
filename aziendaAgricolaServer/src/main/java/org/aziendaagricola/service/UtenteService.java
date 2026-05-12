@@ -2,6 +2,7 @@ package org.aziendaagricola.service;
 
 import org.aziendaagricola.DTO.UtenteAccediDTO;
 import org.aziendaagricola.DTO.UtenteCreateDTO;
+import org.aziendaagricola.log.LogUtente;
 import org.aziendaagricola.entita.Utente;
 import org.aziendaagricola.repository.UtenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,14 @@ public class UtenteService {
             return utenteRepository.getTipoByIdUtente(idUtente).getTipo();
         }
         return null;
+
+    }
+
+    public void scriviLog(int id, String tipo) {
+        Utente u=utenteRepository.getByIdUtente(id);
+        LogUtente log=new LogUtente(id,tipo,u.getUsername());
+        log.scriviLog();
+
 
     }
 }

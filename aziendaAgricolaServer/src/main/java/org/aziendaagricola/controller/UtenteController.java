@@ -21,6 +21,7 @@ public class UtenteController {
         if(dto.convalidaDati()) {
             if (utenteService.salva(dto)){
                 int id= utenteService.getId(dto);
+                utenteService.scriviLog(id, "registrazione");
                 RegistrazioneResponse body=new RegistrazioneResponse(id,"Utente creato");
                 return ResponseEntity.status(201).body(body);//operazione riuscita
             }
@@ -42,6 +43,7 @@ public class UtenteController {
         if(dto.convalidaDati()){
             int id= utenteService.credenzialiCorrette(dto);
             if(id!=-1){
+                utenteService.scriviLog(id, "accesso");
                 RegistrazioneResponse body=new RegistrazioneResponse(id,"Accesso effettuato");
                 return ResponseEntity.status(201).body(body);
             }
