@@ -1,3 +1,10 @@
 [2026-05-12] admin (id:5) ha effettuato l'accesso
 [2026-05-12T17:33:11.366418200] admin (id:5) ha effettuato l'accesso
 [2026-05-12T17:33:33.664189300] pippo (id:6) ha effettuato la registrazione
+[2026-05-12T18:10:35.298571200] pippo (id:6) ha effettuato l'accesso
+[2026-05-12T18:12:12.473105800] pippo (id:6) ha effettuato l'accesso
+[2026-05-12T18:18:20.825604100] pippo (id:6) ha effettuato l'accesso
+[2026-05-12T18:20:57.738604800] pippo (id:6) ha effettuato l'accesso
+[2026-05-12T18:22:59.767621500] pippo (id:6) ha effettuato l'accesso
+[2026-05-12T18:23:21.473416] pippo (id:6) ha effettuato l'accesso
+[2026-05-12T18:23:45.435267200] pippo (id:6) ha effettuato l'accesso

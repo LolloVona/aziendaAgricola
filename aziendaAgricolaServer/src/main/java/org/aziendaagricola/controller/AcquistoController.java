@@ -49,7 +49,7 @@ public class AcquistoController {
             ErroreResponse body=new ErroreResponse("Quantità prodotti eccessiva");
             return ResponseEntity.status(400).body(body);
         }
-        if(acquistoService.confermaAcquisto(dto)>-1){
+        if(acquistoService.confermaAcquisto(dto)){
             acquistoService.scriviLog();
             ErroreResponse body=new ErroreResponse("Acquisto confermato");
             return ResponseEntity.status(200).body(body);
