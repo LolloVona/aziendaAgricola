@@ -21,7 +21,7 @@ public class AcquistoReadDTO {
     }
 
     public void setUsernameCliente(String usernameCliente) {
-        usernameCliente = usernameCliente;
+        this.usernameCliente = usernameCliente;
     }
 
     public int getNumeroFattura() {
