@@ -72,7 +72,7 @@ function mostraProdotti(a){
         //gestisco il click:
         bottoneElimina.addEventListener("click", () =>
         {
-            apriElimina(); //TODO
+            elimina(prodotto.nome);
         });
 
 
@@ -177,6 +177,33 @@ async function uploadImg(){
     const text = await response.text();
     console.log(response.status);
     console.log(text);
+}
+
+async function elimina(nome){
+
+    const id = sessionStorage.getItem("idUtente");
+
+    console.log("idUtente:", id);
+    console.log("nome:", nome);
+
+    const response = await fetch(
+        `http://localhost:8080/api/prodotto/${encodeURIComponent(nome)}`,
+        {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUtente: Number(id)
+            })
+        }
+    );
+
+    if(response.status == 204){
+        alert('prodotto eliminato con successo');
+        location.reload();
+    }else
+        alert(err);
 }
 
 

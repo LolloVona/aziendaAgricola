@@ -14,3 +14,5 @@
 [2026-05-12T11:52:07.213173] {id:9} admin(id:9) ha creato anguria(id:16) 
 [2026-05-12T12:06:48.805448] {id:10} admin(id:9) ha creato anguria(id:17) 
 [2026-05-12T12:09:36.272542] {id:11} admin(id:9) ha creato anguria(id:18) 
+[2026-05-12T12:39:31.908692] {id:12} admin(id:9) ha eliminato pera(id:7) 
+[2026-05-12T12:41:48.107116] {id:13} admin(id:9) ha eliminato mela(id:12) 
