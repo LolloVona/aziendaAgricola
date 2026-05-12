@@ -1,7 +1,0 @@
-[2026-05-12T17:42:56.003517] {idRaccolto:1} admin (id:9) ha aggiunto un nuovo raccolto di anguria(id:18) Data prevista: 2026-05-13
-[2026-05-12T17:44:57.577423] {idRaccolto:2} admin (id:9) ha aggiunto un nuovo raccolto di anguria(id:18) Data prevista: 2026-05-13
-[2026-05-12T17:45:18.199219] {idRaccolto:3} admin (id:9) ha aggiunto un nuovo raccolto di anguria(id:18) Data prevista: 2026-05-13
-[2026-05-12T17:45:58.157825] {idRaccolto:4} admin (id:9) ha aggiunto un nuovo raccolto di banana(id:6) Data prevista: 2026-05-13
-[2026-05-12T17:47:03.256662] {idRaccolto:5} admin (id:9) ha aggiunto un nuovo raccolto di anguria(id:18) Data prevista: 2026-05-14
-[2026-05-12T17:47:49.498913] {idRaccolto:6} admin (id:9) ha aggiunto un nuovo raccolto di anguria(id:18) Data prevista: 2026-05-13
-[2026-05-12T17:48:33.136948] {idRaccolto:7} admin (id:9) ha aggiunto un nuovo raccolto di anguria(id:18) Data prevista: 2026-05-13

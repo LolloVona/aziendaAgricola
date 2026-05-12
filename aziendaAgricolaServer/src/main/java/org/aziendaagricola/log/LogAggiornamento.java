@@ -1,4 +1,4 @@
-package org.aziendaagricola;
+package org.aziendaagricola.log;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
@@ -10,7 +10,7 @@ public class LogAggiornamento {
         //Create e Delete
         this.idProdotto = idProdotto;
         this.idUtente = idUtente;
-        this.nomeFile = "aggiornamento.txt";
+        this.nomeFile = "log/aggiornamento.txt";
         this.nomeProdotto = nomeProdotto;
         this.nomeUtente = nomeUtente;
         this.tipo = tipo;
@@ -22,7 +22,7 @@ public class LogAggiornamento {
         this.attributo = attributo;
         this.idProdotto = idProdotto;
         this.idUtente = idUtente;
-        this.nomeFile = "aggiornamento.txt";
+        this.nomeFile = "log/aggiornamento.txt";
         this.nomeProdotto = nomeProdotto;
         this.nomeUtente = nomeUtente;
         this.nuovoValore = nuovoValore;

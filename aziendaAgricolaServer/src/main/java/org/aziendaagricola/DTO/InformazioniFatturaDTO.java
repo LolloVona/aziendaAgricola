@@ -2,7 +2,7 @@ package org.aziendaagricola.DTO;
 
 import java.time.LocalDate;
 
-public class InformazioniFattura {
+public class InformazioniFatturaDTO {
     private int numeroFattura;
     private LocalDate dataErogazione;
     private float prezzo;

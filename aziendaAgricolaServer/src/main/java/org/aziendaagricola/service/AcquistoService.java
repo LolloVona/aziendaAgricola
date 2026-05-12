@@ -2,7 +2,7 @@ package org.aziendaagricola.service;
 
 import jakarta.transaction.Transactional;
 import org.aziendaagricola.DTO.*;
-import org.aziendaagricola.DTO.Informazioni;
+import org.aziendaagricola.DTO.InformazioniDTO;
 
 import org.aziendaagricola.entita.*;
 import org.aziendaagricola.repository.*;
@@ -26,7 +26,7 @@ public class AcquistoService {
     @Autowired
     private UtenteRepository utenteRepository;
     public boolean isValido(AcquistoCreateDTO dto) {
-        ArrayList<Informazioni> prodotti=dto.getProdotti();
+        ArrayList<InformazioniDTO> prodotti=dto.getProdotti();
         Float somma,richiesta;
         int id;
         for(int i=0;i<prodotti.size();i++){
@@ -44,11 +44,11 @@ public class AcquistoService {
         return true;
     }
 
-    public InformazioniFattura aggiungiAcquisto(AcquistoCreateDTO dto) {
+    public InformazioniFatturaDTO aggiungiAcquisto(AcquistoCreateDTO dto) {
         LocalDate dataProntoOrdine = LocalDate.now();
         float totalePrezzoOrdine=0;
         for (int i = 0; i < dto.getProdotti().size(); i++) {
-            Informazioni info = dto.getProdotti().get(i);
+            InformazioniDTO info = dto.getProdotti().get(i);
             float daScalare = info.getQuantita();
             String nome = info.getNome();
             float richiesta = info.getQuantita();
@@ -87,7 +87,7 @@ public class AcquistoService {
         u.setIdUtente(dto.getIdUtente());
         acquisto.setUtente(u);
         acquisto.setDataErogazione(dataProntoOrdine);
-        ArrayList<Informazioni> prodotti=new ArrayList<>();
+        ArrayList<InformazioniDTO> prodotti=new ArrayList<>();
         for(int i=0;i<prodotti.size();i++){
             Relativo relativo = new Relativo();
             relativo.setAcquisto(acquisto);
@@ -97,7 +97,7 @@ public class AcquistoService {
             relativo.setProdotto(p);
             relativo.setQuantita(richiesta);
         }
-        InformazioniFattura fattura = new InformazioniFattura();
+        InformazioniFatturaDTO fattura = new InformazioniFatturaDTO();
         fattura.setDataErogazione(dataProntoOrdine);
         fattura.setPrezzo(totalePrezzoOrdine);
         return fattura;
@@ -108,7 +108,7 @@ public class AcquistoService {
         LocalDate dataProntoOrdine = LocalDate.now();
         float totalePrezzoOrdine=0;
         for (int i = 0; i < dto.getProdotti().size(); i++) {
-            Informazioni info = dto.getProdotti().get(i);
+            InformazioniDTO info = dto.getProdotti().get(i);
             float daScalare = info.getQuantita();
             String nome = info.getNome();
             float richiesta = info.getQuantita();
@@ -150,7 +150,7 @@ public class AcquistoService {
         acquisto.setUtente(u);
         acquisto.setDataErogazione(dataProntoOrdine);
         repository.save(acquisto);
-        ArrayList<Informazioni> prodotti=dto.getProdotti();
+        ArrayList<InformazioniDTO> prodotti=dto.getProdotti();
         for(int i=0;i<prodotti.size();i++){
             Relativo relativo = new Relativo();
             IdRelativo id = new IdRelativo();
@@ -205,5 +205,8 @@ public class AcquistoService {
                 prodottoRepository.save(p);
             }
         }
+    }
+
+    public void scriviLog() {
     }
 }

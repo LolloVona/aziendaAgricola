@@ -1,0 +1,2 @@
+[2026-05-12T17:00:45.197432300] {idRaccolto:7} admin (id:5) ha aggiunto un nuovo raccolto di mela(id:13) Data prevista: 2026-05-13
+[2026-05-12T17:18:27.315331700] {idRaccolto:8} admin (id:5) ha aggiunto un nuovo raccolto di mela(id:13) Data prevista: 2026-05-13

@@ -1,7 +1,7 @@
 package org.aziendaagricola.service;
 
 import org.aziendaagricola.DTO.RaccoltoCreateDTO;
-import org.aziendaagricola.LogRaccolto;
+import org.aziendaagricola.log.LogRaccolto;
 import org.aziendaagricola.entita.Prodotto;
 import org.aziendaagricola.entita.ProssimoRaccolto;
 import org.aziendaagricola.repository.ProdottoRepository;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Optional;
 
 @Service
 public class ProssimoRaccoltoService {
