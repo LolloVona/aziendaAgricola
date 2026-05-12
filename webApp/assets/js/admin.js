@@ -7,6 +7,11 @@
             In questo caso, la gestione dei prodotti, con le funzioni di modifica, eliminazione e aggiunta.
 
 */
+let prodottoDaModificare = null;
+let tipoModifica = null;
+
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("close-add-product").addEventListener("click", () =>{
@@ -61,7 +66,7 @@ function mostraProdotti(a){
         //gestisco il click:
         bottoneModifica.addEventListener("click", () =>
         {
-            apriModifica(); //TODO
+            modifica(prodotto.nome);
         });
 
         //Creo bottone elimina:
@@ -204,6 +209,96 @@ async function elimina(nome){
         location.reload();
     }else
         alert(err);
+}
+
+function modifica(nome){
+
+    prodottoDaModificare = nome;
+    tipoModifica = null;
+
+    document.getElementById("edit-prodotto-attuale").textContent =
+        "Prodotto selezionato: " + nome;
+
+    document.getElementById("box-edit-prezzo").style.display = "none";
+    document.getElementById("box-edit-nome").style.display = "none";
+
+    document.getElementById("edit-product-overlay").classList.add("show");
+}
+
+function scegliModifica(tipo){
+
+    tipoModifica = tipo;
+
+    document.getElementById("box-edit-prezzo").style.display = "none";
+    document.getElementById("box-edit-nome").style.display = "none";
+
+    if(tipo === "prezzo"){
+        document.getElementById("box-edit-prezzo").style.display = "block";
+    }
+
+    if(tipo === "nome"){
+        document.getElementById("box-edit-nome").style.display = "block";
+    }
+}
+
+document.getElementById("close-edit-product").addEventListener("click", () => {
+    document.getElementById("edit-product-overlay").classList.remove("show");
+});
+
+async function salvaModificaProdotto(){
+ const id = sessionStorage.getItem("idUtente");
+    if(tipoModifica == "nome"){
+        nuovoNome = document.getElementById('edit-nome-prodotto').value;
+        const response = await fetch(`http://localhost:8080/api/prodotto/nome/${nuovoNome}`,{
+            method:"PUT",
+            headers:
+            {
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(
+                {
+                    nome: prodottoDaModificare,
+                    idUtente:id
+                }
+            )
+        });
+
+        const message = response.json();
+
+        if(response.status == 204){
+            alert('prodotto modificato');
+            location.reload();
+        }else{
+            alert('errore');
+        }
+    }
+    if(tipoModifica == "prezzo"){
+        nuovoPrezzo = document.getElementById('edit-prezzo-prodotto').value;
+
+        const response = await fetch(`http://localhost:8080/api/prodotto/prezzo/${nuovoPrezzo}`,{
+            method:"PUT",
+            headers:
+            {
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(
+                {
+                    nome: prodottoDaModificare,
+                    idUtente:id 
+                }
+            )
+        });
+
+        const message = response.json();
+
+        if(response.status == 204){
+            alert('prodotto modificato');
+            location.reload();
+        }else{
+            alert('errore');
+        }
+    }
+
 }
 
 

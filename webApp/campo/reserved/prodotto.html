@@ -102,6 +102,50 @@
 </div>
 
 
+
+<!-- PARTE MODIFICA -->
+<div id="edit-product-overlay" class="add-product-overlay">
+    <div class="add-product-modal">
+
+        <button id="close-edit-product" class="close-add-product">&times;</button>
+
+        <h2><i class="fa-solid fa-pen"></i> Modifica prodotto</h2>
+
+        <div class="add-product-form">
+
+            <p id="edit-prodotto-attuale"></p>
+
+            <div class="edit-choice">
+                <button type="button" onclick="scegliModifica('prezzo')" class="btn-salva-prodotto">
+                    Modifica prezzo
+                </button>
+
+                <button type="button" onclick="scegliModifica('nome')" class="btn-salva-prodotto">
+                    Modifica nome
+                </button>
+            </div>
+
+            <div id="box-edit-prezzo" style="display:none;">
+                <label>
+                    Nuovo prezzo:
+                    <input type="number" id="edit-prezzo-prodotto" step="0.01">
+                </label>
+            </div>
+
+            <div id="box-edit-nome" style="display:none;">
+                <label>
+                    Nuovo nome:
+                    <input type="text" id="edit-nome-prodotto">
+                </label>
+            </div>
+
+            <button class="btn-salva-prodotto" onclick="salvaModificaProdotto()">
+                Salva modifica
+            </button>
+
+        </div>
+    </div>
+</div>
    
 
     <!----------------------------------------------->

@@ -16,3 +16,7 @@
 [2026-05-12T12:09:36.272542] {id:11} admin(id:9) ha creato anguria(id:18) 
 [2026-05-12T12:39:31.908692] {id:12} admin(id:9) ha eliminato pera(id:7) 
 [2026-05-12T12:41:48.107116] {id:13} admin(id:9) ha eliminato mela(id:12) 
+[2026-05-12T13:19:33.875805] {id:14} admin(id:9) ha modificato banana(id:6) (Attributo modificato nome vecchio valore:banana nuovo valore:pippa)
+[2026-05-12T13:19:50.066367] {id:15} admin(id:9) ha modificato pippa(id:6) (Attributo modificato nome vecchio valore:pippa nuovo valore:banana)
+[2026-05-12T13:24:06.645067] {id:16} admin(id:9) ha modificato banana(id:6) (Attributo modificato prezzo vecchio valore:10.0 nuovo valore:3.0)
+[2026-05-12T13:25:45.749088] {id:17} admin(id:9) ha modificato banana(id:6) (Attributo modificato prezzo vecchio valore:3.0 nuovo valore:3.5)
