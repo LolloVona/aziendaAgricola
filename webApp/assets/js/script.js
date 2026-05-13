@@ -14,7 +14,7 @@ hamburger?.addEventListener('click', () => {
 });
 
 const heroImages = [
-  'https://wp-themes.com/wp-content/themes/green-vegetable-store/images/slider-img1.png',
+  'assets/img/1.png',
   'https://wp-themes.com/wp-content/themes/green-vegetable-store/images/slider-img2.png',
   'https://wp-themes.com/wp-content/themes/green-vegetable-store/images/slider-img3.png'
 ];
