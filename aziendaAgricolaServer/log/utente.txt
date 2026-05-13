@@ -16,3 +16,8 @@
 [2026-05-13T10:27:47.015006] admin (id:9) ha effettuato l'accesso
 [2026-05-13T10:34:57.940574] Diego (id:8) ha effettuato l'accesso
 [2026-05-13T10:35:49.861686] admin (id:9) ha effettuato l'accesso
+[2026-05-13T10:37:31.689906] Diego (id:8) ha effettuato l'accesso
+[2026-05-13T10:38:13.047802] admin (id:9) ha effettuato l'accesso
+[2026-05-13T10:57:56.003389] erfox (id:10) ha effettuato l'accesso
+[2026-05-13T10:58:26.090315] erfox (id:10) ha effettuato l'accesso
+[2026-05-13T10:59:52.628973] CAZZOGROSSONEGRO (id:11) ha effettuato la registrazione
