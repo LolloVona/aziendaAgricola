@@ -21,3 +21,4 @@
 [2026-05-13T10:57:56.003389] erfox (id:10) ha effettuato l'accesso
 [2026-05-13T10:58:26.090315] erfox (id:10) ha effettuato l'accesso
 [2026-05-13T10:59:52.628973] CAZZOGROSSONEGRO (id:11) ha effettuato la registrazione
+[2026-05-13T13:24:43.310045] Diego (id:8) ha effettuato l'accesso

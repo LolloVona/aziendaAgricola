@@ -625,6 +625,17 @@ a {
     padding: 20px;
 }
 
+#container-prodotti-cercati{
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
+    
+
+    gap: 20px;
+
+    padding: 20px;
+}
+
 #container-prodotti-gestione{
     display: grid;
     
@@ -812,5 +823,67 @@ a {
         border-radius: 14px;
     }
 
+}
+
+.cerca{
+    width: min(700px, 92%);
+    margin: 35px auto 20px;
+    padding: 18px 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+
+    background: #f7fbf1;
+    border-radius: 40px;
+    box-shadow: var(--shadow);
+    border-bottom: 4px solid var(--lime);
+}
+
+.cerca label{
+    color: var(--green);
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.cerca input{
+    flex: 1;
+    height: 45px;
+    border: 2px solid #eef6e9;
+    border-radius: 25px;
+    padding: 0 18px;
+    outline: none;
+    font-weight: 700;
+    color: var(--text);
+    background: var(--white);
+}
+
+.cerca input:focus{
+    border-color: var(--lime);
+}
+
+.cerca button{
+    margin-top: 0;
+    height: 45px;
+    padding: 0 24px;
+}
+
+
+/*telefono*/
+@media(max-width:768px){
+    .cerca{
+        flex-direction: column;
+        border-radius: 22px;
+        align-items: stretch;
+    }
+
+    .cerca label{
+        text-align: center;
+    }
+
+    .cerca button{
+        width: 100%;
+    }
 }
 
