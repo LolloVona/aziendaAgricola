@@ -60,9 +60,9 @@ public class AcquistoController {
         return ResponseEntity.status(400).body(body);
 
     }
-    @GetMapping()
-    public ResponseEntity<Object> getOrdiniDaErogare(@RequestBody AcquistoGetDTO dto) {
-        if(!acquistoService.isAdmin(dto.getIdUtente())) {
+    @GetMapping("/{idUtente}")
+    public ResponseEntity<Object> getOrdiniDaErogare(@PathVariable("idUtente")Integer idUtente) {
+        if(!acquistoService.isAdmin(idUtente)) {
             ErroreResponse body=new ErroreResponse("Non sei admin");
             return ResponseEntity.status(403).body(body);
         }

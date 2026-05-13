@@ -20,3 +20,4 @@
 [2026-05-12T13:19:50.066367] {id:15} admin(id:9) ha modificato pippa(id:6) (Attributo modificato nome vecchio valore:pippa nuovo valore:banana)
 [2026-05-12T13:24:06.645067] {id:16} admin(id:9) ha modificato banana(id:6) (Attributo modificato prezzo vecchio valore:10.0 nuovo valore:3.0)
 [2026-05-12T13:25:45.749088] {id:17} admin(id:9) ha modificato banana(id:6) (Attributo modificato prezzo vecchio valore:3.0 nuovo valore:3.5)
+[2026-05-13T10:27:01.593950] {id:18} admin(id:9) ha creato papaya(id:19) 

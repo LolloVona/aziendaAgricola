@@ -1,0 +1,119 @@
+/*
+*** FRUTTA IN CAMPO™ 2026© - This code is protected
+
+        ORDINI CSS, solo ed esclusivamente per la pagina di gestione degli ordini,
+            destinata agli admin.
+            
+
+*/
+
+
+
+.tabella-wrapper{
+    width: 100%;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.tabella-fatture{
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+/* HEADER */
+.tabella-fatture thead{
+    background: var(--green);
+    color: var(--white);
+}
+
+.tabella-fatture th{
+    padding: 18px;
+    text-align: left;
+    font-size: 15px;
+    letter-spacing: .5px;
+}
+
+/* CELLE */
+.tabella-fatture td{
+    padding: 18px;
+    border-bottom: 1px solid #eef6e9;
+    color: var(--text);
+    font-weight: 600;
+}
+
+/* RIGHE */
+.tabella-fatture tbody tr{
+    transition: .2s;
+}
+
+.tabella-fatture tbody tr:hover{
+    background: #f7fbf1;
+    transform: scale(1.002);
+}
+
+/* TOTALE */
+.tabella-fatture td:last-child{
+    color: var(--green2);
+    font-weight: 800;
+}
+
+/* NUMERO FATTURA */
+.tabella-fatture td:first-child{
+    color: var(--lime);
+    font-weight: 800;
+}
+
+/* RESPONSIVE */
+@media(max-width:760px){
+
+    .tabella-fatture th,
+    .tabella-fatture td{
+        padding: 14px;
+        font-size: 14px;
+    }
+
+}
+
+
+#no{
+    display: none;
+
+    width: fit-content;
+
+    margin: 80px auto;
+
+    padding: 28px 40px;
+
+    background: var(--white);
+
+    color: var(--green);
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(28px, 4vw, 48px);
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    border-bottom: 6px solid var(--lime);
+
+    box-shadow: var(--shadow);
+
+    position: relative;
+}
+
+/* piccola decorazione */
+#no::before{
+    content: "🥬";
+
+    display: block;
+
+    font-size: 52px;
+
+    margin-bottom: 12px;
+}

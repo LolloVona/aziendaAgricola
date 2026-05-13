@@ -5,7 +5,7 @@
             INTERNE, ovvero dopo aver effettuato il log-in.
 
 */
-//MODIFICHE DA EFFETTUARE SU IF  A RIGA 72 E 93
+
 var idUtente = sessionStorage.getItem("idUtente");
 console.log(idUtente);
 var carrello = []; //variabile temporanea.
@@ -69,9 +69,9 @@ function mostraProdotti(a){
         });
 
         btnPiu.addEventListener("click", () => {
-            if(Number(inputQuantita.value) < prodotto.disponibilita){
+
                 inputQuantita.value++;
-            }
+
         });
 
         //Aggiungo al div
@@ -91,7 +91,7 @@ function mostraProdotti(a){
         btnCarrello.addEventListener("click", () => {
            const quantita = Number(inputQuantita.value);
            
-           if(quantita <= prodotto.disponibilita   && quantita>0){//MODIFICA
+           if(quantita>0){//MODIFICA
 
                 const prodottoNelCarrello = carrello.find(p => p.nome === prodotto.nome) //find per cercare ed non creare eventuali copioni [scorre il vettore]
 

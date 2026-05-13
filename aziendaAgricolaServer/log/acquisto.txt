@@ -1,0 +1,1 @@
+[2026-05-13T10:35:40.285407] Diego (id:8) ha effettuato un acquisto (numero fattura:11)

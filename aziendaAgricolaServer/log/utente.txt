@@ -8,3 +8,11 @@
 [2026-05-12T18:22:59.767621500] pippo (id:6) ha effettuato l'accesso
 [2026-05-12T18:23:21.473416] pippo (id:6) ha effettuato l'accesso
 [2026-05-12T18:23:45.435267200] pippo (id:6) ha effettuato l'accesso
+[2026-05-13T09:11:17.448257] erfox (id:10) ha effettuato l'accesso
+[2026-05-13T09:13:14.113309] admin (id:9) ha effettuato l'accesso
+[2026-05-13T10:25:34.164073] admin (id:9) ha effettuato l'accesso
+[2026-05-13T10:25:43.408187] admin (id:9) ha effettuato l'accesso
+[2026-05-13T10:27:17.096321] admin (id:9) ha effettuato l'accesso
+[2026-05-13T10:27:47.015006] admin (id:9) ha effettuato l'accesso
+[2026-05-13T10:34:57.940574] Diego (id:8) ha effettuato l'accesso
+[2026-05-13T10:35:49.861686] admin (id:9) ha effettuato l'accesso
