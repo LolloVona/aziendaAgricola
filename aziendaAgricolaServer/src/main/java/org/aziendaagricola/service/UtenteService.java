@@ -56,7 +56,5 @@ public class UtenteService {
         Utente u=utenteRepository.getByIdUtente(id);
         LogUtente log=new LogUtente(id,tipo,u.getUsername());
         log.scrivi();
-
-
     }
 }
