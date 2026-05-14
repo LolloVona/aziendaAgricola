@@ -1,2 +1,4 @@
 [2026-05-13T10:35:40.285407] Diego (id:8) ha effettuato un acquisto (numero fattura:11)
 [2026-05-13T10:37:45.333184] Diego (id:8) ha effettuato un acquisto (numero fattura:12)
+[2026-05-14T18:17:06.049459] b (id:13) ha effettuato un acquisto (numero fattura:13)
+[2026-05-14T18:33:07.536309] Diego (id:8) ha effettuato un acquisto (numero fattura:14)
