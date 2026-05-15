@@ -1,0 +1,4 @@
+[2026-05-15T11:44:40.036037] {idRaccolto:9} admin (id:14) ha aggiunto un nuovo raccolto di banana(id:20) Data prevista: 2026-05-22
+[2026-05-15T11:45:05.252546] {idRaccolto:10} admin (id:14) ha aggiunto un nuovo raccolto di pera(id:24) Data prevista: 2026-05-16
+[2026-05-15T11:45:17.873361] {idRaccolto:11} admin (id:14) ha aggiunto un nuovo raccolto di carota(id:25) Data prevista: 2026-05-27
+[2026-05-15T11:45:31.793334] {idRaccolto:12} admin (id:14) ha aggiunto un nuovo raccolto di carota(id:25) Data prevista: 2026-05-31

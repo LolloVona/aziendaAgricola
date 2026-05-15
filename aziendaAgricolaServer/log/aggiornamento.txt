@@ -1,0 +1,6 @@
+[2026-05-15T11:39:38.698507] {id:22} admin(id:14) ha creato banana(id:20) 
+[2026-05-15T11:40:06.674315] {id:23} admin(id:14) ha creato papaya(id:21) 
+[2026-05-15T11:40:28.596586] {id:24} admin(id:14) ha creato anguria(id:22) 
+[2026-05-15T11:41:59.266882] {id:25} admin(id:14) ha creato mela(id:23) 
+[2026-05-15T11:42:55.562701] {id:26} admin(id:14) ha creato pera(id:24) 
+[2026-05-15T11:43:54.052497] {id:27} admin(id:14) ha creato carota(id:25) 
