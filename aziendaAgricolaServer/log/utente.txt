@@ -1,3 +1,6 @@
 [2026-05-15T11:39:11.880575] pippo (id:15) ha effettuato la registrazione
 [2026-05-15T11:39:24.598735] admin (id:14) ha effettuato l'accesso
 [2026-05-15T11:44:23.540173] admin (id:14) ha effettuato l'accesso
+[2026-05-15T13:32:10.466092] diego (id:16) ha effettuato la registrazione
+[2026-05-15T13:33:26.899648] diego (id:16) ha effettuato l'accesso
+[2026-05-15T13:36:31.471523] admin (id:14) ha effettuato l'accesso

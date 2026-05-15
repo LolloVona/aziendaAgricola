@@ -1,0 +1,2 @@
+[2026-05-15T13:35:01.118360] diego (id:16) ha effettuato un acquisto (numero fattura:15)
+[2026-05-15T13:36:19.373231] diego (id:16) ha effettuato un acquisto (numero fattura:16)
