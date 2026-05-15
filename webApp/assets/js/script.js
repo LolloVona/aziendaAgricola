@@ -15,8 +15,8 @@ hamburger?.addEventListener('click', () => {
 
 const heroImages = [
   'assets/img/1.png',
-  'https://wp-themes.com/wp-content/themes/green-vegetable-store/images/slider-img2.png',
-  'https://wp-themes.com/wp-content/themes/green-vegetable-store/images/slider-img3.png'
+  'assets/img/2.png',
+  'assets/img/3.png'
 ];
 let current = 0;
 const product = document.querySelector('.hero__product');

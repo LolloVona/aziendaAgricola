@@ -6,10 +6,10 @@
   <title>Frutta In Campo™</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" href="assets/img/icon.ico">
+  <link rel="icon" href="../assets/img/icon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
   <header class="site-header">
@@ -26,7 +26,7 @@
     <nav class="navbar">
       <div class="container navwrap">
         <div>
-            <img src="assets/img/icon.ico" width="50px" style="transform: scale(1.40);"> 
+            <img src="../assets/img/icon.ico" width="50px" style="transform: scale(1.40);"> 
         </div>
         <div class="socials">
           <a href="https://www.facebook.com/casellarestauro/?locale=it_IT" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -40,7 +40,7 @@
           <li class="has-menu"><a href="campo/catalogo.html">Catalogo</a>
 
           </li>
-          <li><a href="campo/chiSiamo.html">Chi Siamo</a></li>
+          <li><a href="#about">Chi Siamo</a></li>
           <li><a class="buy" href="campo/login.html">Entra nel campo</a></li>
         </ul>
         <button class="search" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -48,45 +48,54 @@
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero__slide is-active">
-        <div class="container hero__content">
-          <div class="hero__text">
-            <p class="eyebrow">Benvenuti nel mondo dell'orto™</p>
-            <h1>Frutta in<br>Campo</h1>
-            <p class="lead">Osserva, Assaggia, Ama</p>
-            <a class="btn" href="#services">Dimmi di più</a>
-          </div>
-          <img class="hero__product" src="assets/img/1.png" alt="Aquaponics greenhouse">
+  <section id="about" class="about-section">
+  <div class="container about-grid">
+
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=900&q=80" alt="Campo agricolo Frutta In Campo">
+    </div>
+
+    <div class="about-content">
+      <p class="section-kicker">Chi siamo</p>
+      <h2>La spesa nasce dal campo, non da uno scaffale.</h2>
+
+      <p>
+        <strong>Frutta in Campo™</strong> è una webapp pensata per rendere l’acquisto di frutta e prodotti agricoli
+        più semplice, veloce e naturale. Il nostro obiettivo è portare l’esperienza del mercato direttamente online,
+        mantenendo il legame con la terra, la qualità e la freschezza dei prodotti.
+      </p>
+
+      <p>
+        Ogni prodotto racconta una storia: quella del raccolto, del lavoro nei campi e della cura con cui selezioniamo
+        ciò che arriva al cliente. Con Frutta in Campo™ puoi consultare il catalogo, scegliere i prodotti e vivere
+        una spesa digitale più chiara, comoda e vicina alla natura ordinando i prodotti già pronti per te oppure prenotare tutto quello che vuoi!
+      </p>
+
+      <div class="about-values">
+        <div class="about-value">
+          <i class="fa-solid fa-seedling"></i>
+          <h3>Freschezza</h3>
+          <p>Prodotti selezionati con attenzione e ispirati al mondo agricolo.</p>
+        </div>
+
+        <div class="about-value">
+          <i class="fa-solid fa-truck-fast"></i>
+          <h3>Comodità</h3>
+          <p>Catalogo online semplice, veloce e accessibile da ogni dispositivo.</p>
+        </div>
+
+        <div class="about-value">
+          <i class="fa-solid fa-heart"></i>
+          <h3>Passione</h3>
+          <p>Un progetto creato con cura, attenzione al cliente e amore per la natura.</p>
         </div>
       </div>
-      <button class="arrow arrow--prev"><i class="fa-solid fa-chevron-left"></i></button>
-      <button class="arrow arrow--next"><i class="fa-solid fa-chevron-right"></i></button>
-    </section>
 
-    <section id="services" class="services container">
-      <article class="service-card"><img src="https://img.freepik.com/vettori-gratuito/marchio-di-qualita-migliore-e-prodotto-originale-per-la-promozione-aziendale_1017-58674.jpg?semt=ais_hybrid&w=740&q=80" alt=""><h3>Qualità Prodotto</h3><p>Il Nostro team ha investito sulla massima qualità da servire al cliente</p></article>
-      <article class="service-card"><img src="assets/img/team.png" alt=""><h3>Ottimo Team</h3><p>La nostra organizzazione ti garantisce <b>tu</b>al primo posto.</p></article>
-      <article class="service-card"><img src="https://static.vecteezy.com/ti/vettori-gratis/p1/3609367-etichetta-segno-oro-garanzia-rimborso-vettore-gratuito-vettoriale.jpg" alt=""><h3>Garanzia</h3><p>Soddisfatto o rimborsato. Se non ti piacciono i prodotti, rispedisciceli e ti restituiremo fino all'ultimo centesimo</p></article>
-      <article class="service-card"><img src="https://img.freepik.com/premium-vector/parcel-delivery-boy-illustration_712567-1636.jpg?semt=ais_hybrid&w=740&q=80" alt=""><h3>Consegna</h3><p>Ovunque sei, noi ci arriviamo! Frutta in campo è ovunque</p></article>
-    </section>
+      <a href="catalogo.html" class="btn">Scopri il catalogo</a>
+    </div>
 
-    <section id="blog" class="blog">
-      <div class="container">
-        <p class="section-kicker">Le Nostre Recensioni</p>
-        <h2>Cosa Dicono di noi..</h2>
-        <div class="posts">
-          <article class="post"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><h3>Prodotti freschissimi e consegna veloce</h3><p>Ho ordinato frutta e verdura per tutta la settimana e sono rimasto davvero colpito. Prodotti freschi, saporiti e arrivati in pochissimo tempo. Sicuramente riordinerò.</p><small><i class="fa-regular fa-user"></i> Laura Laurenzetti</small><a href="#">Unisciti a noi!</a></article>
-          <article class="post"><span>&#9733;&#9733;&#9733;&#9733;</span><h3>Servizio super comodo</h3><p>Finalmente una piattaforma semplice da usare anche da telefono. Ho fatto l’ordine in due minuti e il supporto è stato gentilissimo.</p><small><i class="fa-regular fa-user"></i> Michael Jackson</small><a href="#">Unisciti a noi!</a></article>
-          <article class="post"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><h3>Qualità davvero alta</h3><p>Le mele e le fragole sembravano appena raccolte. Si sente tantissimo la differenza rispetto al supermercato.</p><small><i class="fa-regular fa-user"></i>Massimo Noce</small><a href="#">Unisciti a noi!</a></article>
-          <article class="post"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><h3>Esperienza fantastica</h3><p>Sito molto intuitivo e ben fatto. Mi piace l’idea di supportare produttori locali senza rinunciare alla comodità.</p><small><i class="fa-regular fa-user"></i>Mirko Bolzen</small><a href="#">Unisciti a noi!</a></article>
-          <article class="post"><span>&#9733;&#9733;&#9733;&#9733;</span><h3>Ottimo rapporto qualità prezzo</h3><p>Prezzi onesti e prodotti molto buoni. Alcuni articoli erano terminati, ma nel complesso esperienza molto positiva</p><small><i class="fa-regular fa-user"></i> Giancarlo figuri</small><a href="#">Unisciti a noi!</a></article>
-          <article class="post"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><h3>Finalmente un servizio serio</h3><p>Packaging curato, consegna puntuale e qualità incredibile. Frutta In Campo è diventato il mio punto di riferimento per la spesa fresca</p><small><i class="fa-regular fa-user"></i>Giuseppe Ungaretti </small><a href="#">Unisciti a noi!</a></article>
-        </div>
-      </div>
-    </section>
-  </main>
+  </div>
+</section>
 
   <footer class="footer">
     <div class="grass"></div>
