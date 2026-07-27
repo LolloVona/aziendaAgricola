@@ -30,8 +30,8 @@ Il progetto è realizzato da un team composto da:
 
 ## 🛠️ Suddivisione dei compiti
 
-- **Diego Alberghini**  →
-- **Lorenzo Vona**  →
+- **Diego Alberghini**  →Frontend
+- **Lorenzo Vona**  → Backend & DB
 - **Federico Iacono**  →
 - **Alessandro Gariboldi**  →
 - **Zeshan Ghani**  →
